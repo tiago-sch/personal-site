@@ -1,0 +1,38 @@
+@use './settings/reset';
+@use './settings/variables';
+@use './settings/mixins';
+
+@each $font in variables.$fonts {
+  @include mixins.font-face( nth($font,1) , nth($font,2) , nth($font,3) , nth($font,4) );
+}
+
+*, html, body {
+  font-family: 'Rubik', sans-serif;
+  line-height: 1.5;
+  font-size: variables.$bodyBaseSize;
+  color: variables.$light-gray;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: variables.$blue-violet-color-wheel-2;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  padding-right: mixins.rem(16);
+  padding-left: mixins.rem(16);
+  margin-right: auto;
+  margin-left: auto;
+
+  @each $breakpoint, $container-max-width in variables.$container-max-widths {
+    @include mixins.breakpoint($breakpoint) {
+      max-width: $container-max-width;
+    }
+  }
+}
+
+h1 {
+  @include mixins.typography(title1, bold);
+}

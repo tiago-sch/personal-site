@@ -1,0 +1,58 @@
+// Breakpoints and Container
+$breakpoints: (
+  xs: 0,
+  sm: 420px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  wd: 1440px
+);
+
+$container-max-widths: (
+  sm: 400px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  wd: 1330px
+);
+
+// Typography
+$fonts: (
+  ("Rubik", "/fonts/Rubik-Regular", normal, normal),
+  ("Rubik", "/fonts/Rubik-Bold", bold, normal)
+);
+
+$bodyBaseSize: 16px;
+$typographies: (
+  title1: (
+    xs: 40px,
+    md: 48px,
+    lg: 64px
+  ),
+  title2: (
+    xs: 24px,
+    md: 32px,
+    lg: 48px
+  ),
+  body: (
+    xs: $bodyBaseSize,
+    md: 18px
+  )
+);
+
+// Colors from Coolors
+$blush: #ea698bff;
+$fandango-pink: #d55d92ff;
+$mulberry-crayola: #c05299ff;
+$byzantine: #ac46a1ff;
+$purpureus: #973aa8ff;
+
+$violet-ryb: #822fafff;
+$purple: #6d23b6ff;
+$purple-2: #6411adff;
+$blue-violet-color-wheel: #571089ff;
+$blue-violet-color-wheel-2: #47126bff;
+
+$onyx: #3d3d3dff;
+$spanish-gray: #8f8f8fff;
+$light-gray: #d6d6d6ff;
