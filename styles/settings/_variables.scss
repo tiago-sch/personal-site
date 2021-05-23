@@ -30,9 +30,14 @@ $typographies: (
     lg: 64px
   ),
   title2: (
-    xs: 24px,
-    md: 32px,
+    xs: 32px,
+    md: 40px,
     lg: 48px
+  ),
+  title3: (
+    xs: 18px,
+    md: 20px,
+    lg: 28px,
   ),
   body: (
     xs: $bodyBaseSize,

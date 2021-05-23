@@ -1,0 +1,77 @@
+@use '../../styles/settings/variables';
+@use '../../styles/settings/mixins';
+
+.tech-talk {
+  padding-top: 48px;
+  padding-bottom: 48px;
+
+  @include mixins.breakpoint(md) {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  &-header {
+    display: flex;
+    flex-direction: column;
+
+    @include mixins.breakpoint(md) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__image-holder {
+      flex-basis: 100%;
+      margin-bottom: 16px;
+
+      @include mixins.breakpoint(md) {
+        margin-bottom: 0;
+        flex-basis: 350px;
+      }
+    }
+
+    &__content {
+      flex-basis: 100%;
+
+      @include mixins.breakpoint(md) {
+        flex-basis: 60%;
+      }
+    }
+  }
+
+  &__title {
+    @include mixins.typography(title2, bold);
+    text-align: left;
+    margin-bottom: 8px;
+
+    @include mixins.breakpoint(md) {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__paragraph {
+    @include mixins.typography();
+
+    &+& {
+      margin-top: 8px;
+    }
+
+    &--center {
+      text-align: center;
+    }
+
+    &--compact {
+      @include mixins.breakpoint(lg) {
+        max-width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    br {
+      content: '';
+      display: block;
+      margin-bottom: 1em;
+    }
+  }
+}

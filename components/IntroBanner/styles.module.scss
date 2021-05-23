@@ -15,6 +15,7 @@
 
 .intro-banner {
   box-shadow: 0 0 15px variables.$purple-2;
+  border-bottom: 2px solid variables.$violet-ryb;
   background-image:
     radial-gradient(circle at bottom center, variables.$purpureus, variables.$blue-violet-color-wheel-2),
     repeating-radial-gradient(circle at center center, variables.$purpureus, variables.$purpureus, 10px, transparent 20px, transparent 10px);
@@ -22,16 +23,17 @@
   &__container {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     min-height: 100vh;
+
     @supports (-webkit-touch-callout: none) {
       min-height: -webkit-fill-available;
     }
 
     @include mixins.breakpoint(md) {
       flex-direction: row;
-      justify-content: space-around;
+      justify-content: space-between;
       min-height: 450px;
     }
 
@@ -45,6 +47,18 @@
 
     @include mixins.breakpoint(md) {
       flex-basis: 50%;
+    }
+
+    @include mixins.breakpoint(lg) {
+      flex-basis: 60%;
+    }
+
+    @include mixins.breakpoint(xl) {
+      flex-basis: 50%;
+    }
+
+    @include mixins.breakpoint(wd) {
+      flex-basis: 60%;
     }
   }
 
@@ -66,15 +80,23 @@
   &__title,
   &__subtitle {
     text-align: center;
+    text-shadow: 5px 5px 10px variables.$blue-violet-color-wheel-2;
 
     @include mixins.breakpoint(md) {
       text-align: left;
     }
   }
 
+  &__title {
+    margin-bottom: 16px;
+
+    @include mixins.breakpoint(md) {
+      margin-bottom: 0;
+    }
+  }
+
   &__subtitle {
-    @include mixins.typography(title2);
-    color: variables.$spanish-gray;
+    @include mixins.typography(title3);
   }
 
   &__astronaut {

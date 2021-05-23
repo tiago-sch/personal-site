@@ -6,11 +6,16 @@ const cn = classnames.bind(styles)
 
 const IntroBanner: React.FC = () => {
   return (
-    <div className={cn('intro-banner')}>
+    <header className={cn('intro-banner')}>
       <div className={cn('container', 'intro-banner__container')}>
         <div className={cn('intro-banner__content-holder')}>
-          <h1 className={cn('intro-banner__title')}>Tiago Schmidt</h1>
-          <p className={cn('intro-banner__subtitle')}>Web Developer</p>
+          <h1 className={cn('intro-banner__title')}>
+            Hi! I'm Tiago!
+          </h1>
+          <p className={cn('intro-banner__subtitle')}>
+            I enjoy creating websites that inspire creativity and
+            I strive to make the web accessible to everyone.
+          </p>
         </div>
         <div className={cn('intro-banner__image-holder')}>
           <Image
@@ -25,8 +30,8 @@ const IntroBanner: React.FC = () => {
           />
         </div>
       </div>
-    </div>
+    </header>
   )
 }
 
-export default IntroBanner;
+export default IntroBanner

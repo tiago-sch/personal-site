@@ -1,0 +1,67 @@
+@use '../../styles/settings/variables';
+@use '../../styles/settings/mixins';
+
+.icon-list {
+  padding: 58px 0 42px;
+
+  & + & {
+    border-top: 2px solid variables.$purple-2
+  }
+
+  @include mixins.breakpoint(lg) {
+    display: flex;
+  }
+
+  &__title {
+    @include mixins.typography(title3, bold);
+    text-align: center;
+    margin-bottom: 24px;
+
+    @include mixins.breakpoint(lg) {
+      text-align: left;
+      flex-basis: 300px;
+    }
+    @include mixins.breakpoint(xl) {
+      flex-basis: 350px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    @include mixins.breakpoint(md) {
+      justify-content: space-between;
+      flex-grow: 1;
+    }
+  }
+
+  &__item {
+    text-align: center;
+    flex-basis: calc(50% - 16px);
+    margin-bottom: 16px;
+
+    @include mixins.breakpoint(md) {
+      flex-basis: calc(25% - 16px);
+    }
+  }
+
+  &__icon-holder {
+    margin: 0 auto;
+    max-width: 80px;
+
+    @include mixins.breakpoint(md) {
+      max-width: 120px;
+    }
+
+    @include mixins.breakpoint(lg) {
+      max-width: 150px;
+    }
+  }
+
+  &__icon-name {
+    @include mixins.typography(body);
+    display: block;
+  }
+}
