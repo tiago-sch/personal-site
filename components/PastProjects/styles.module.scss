@@ -1,0 +1,49 @@
+@use '../../styles/settings/variables';
+@use '../../styles/settings/mixins';
+
+.past-projects {
+  background-color: variables.$violet-ryb;
+  padding: 48px 0;
+
+  &__title {
+    @include mixins.typography(title2, bold);
+    text-align: center;
+    color: white;
+  }
+
+  &__subtitle {
+    @include mixins.typography();
+    text-align: center;
+    color: white;
+  }
+
+  &__list {
+    margin-top: 36px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    text-align: center;
+    flex-basis: 100%;
+    padding: 0 8px 24px;
+
+    @include mixins.breakpoint(md) {
+      flex-basis: 50%;
+    }
+
+    @include mixins.breakpoint(lg) {
+      flex-basis: 25%;
+      margin-bottom: 0;
+    }
+  }
+
+  &__item-screenshot {
+    border-radius: 4px;
+  }
+
+  &__item-title {
+    @include mixins.typography();
+    display: block;
+  }
+}
