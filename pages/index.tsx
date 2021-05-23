@@ -1,7 +1,9 @@
 import Head from 'next/head'
+import { GetStaticProps } from 'next'
 
 import IntroBanner from '../components/IntroBanner'
 import TechTalk from '../components/TechTalk'
+import PastProjects from '../components/PastProjects'
 
 export default function Home() {
   return (
@@ -16,6 +18,13 @@ export default function Home() {
 
       <IntroBanner />
       <TechTalk />
+      <PastProjects />
     </>
   )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: {}
+  }
 }
