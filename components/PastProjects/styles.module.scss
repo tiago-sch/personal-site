@@ -13,8 +13,11 @@
 
   &__subtitle {
     @include mixins.typography();
-    text-align: center;
     color: white;
+
+    @include mixins.breakpoint(md) {
+      text-align: center;
+    }
   }
 
   &__list {

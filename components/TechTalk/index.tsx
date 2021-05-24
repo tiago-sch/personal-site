@@ -49,7 +49,7 @@ const TechTalk: React.FC = () => {
           <Image
             src="/images/mirage-start-up-launch.png"
             alt="Illustration of a computer wtih a hourglass in the screen, the World Wide Web icon in the background and a rocket flying with a speech bubble"
-            layout="responsive"
+            layout="intrinsic"
             width={illustrationWidth}
             height={illustrationWidth * 0.75}
             className={cn('tech-talk-header__ilustration')}
@@ -83,7 +83,7 @@ const TechTalk: React.FC = () => {
 
           <br/>
 
-          For this I always prefer using a responsive mobile-first approach
+          With that in mind I always prefer using a responsive mobile-first approach
           for styling using <ExternalLink href={getBEMLink}>BEM</ExternalLink>{' '}
           and <ExternalLink href={functionlStylingLink}>functional styling</ExternalLink>{' '}
           methodologies and frameworks like CSS Modules or Styled Components.

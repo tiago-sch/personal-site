@@ -33,7 +33,7 @@ const PastProjects:React.FC = () => {
   return (
     <section className={cn('past-projects')}>
       <div className='container'>
-        <h2 className={cn('past-projects__title')}>Past Projects</h2>
+        <h2 className={cn('past-projects__title')}>Past projects</h2>
         <p className={cn('past-projects__subtitle')}>
           These are some of the projects I had the pleasure to work
           with in the past:
