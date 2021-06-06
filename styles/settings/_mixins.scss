@@ -55,3 +55,11 @@
     }
   }
 }
+
+%double-line-break {
+  br {
+    content: '';
+    display: block;
+    margin-bottom: 1em;
+  }
+}

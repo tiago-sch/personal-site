@@ -4,9 +4,13 @@ import { GetStaticProps } from 'next'
 import IntroBanner from '../components/IntroBanner'
 import TechTalk from '../components/TechTalk'
 import PastProjects from '../components/PastProjects'
+import BeyondDev from '../components/BeyondDev'
 
 export default function Home() {
-  console.info('Interested in the code? Let me know and I can send you the git repo or maybe schedule a quick call!! 😄')
+  if (process.browser) {
+    console.info('Interested in the code? Let me know and I can send you the git repo or maybe schedule a quick call!! 😄')
+    console.info('tiagohammett@gmail.com / https://github.com/schmidtas')
+  }
 
   return (
     <>
@@ -21,6 +25,7 @@ export default function Home() {
       <IntroBanner />
       <TechTalk />
       <PastProjects />
+      <BeyondDev />
     </>
   )
 }

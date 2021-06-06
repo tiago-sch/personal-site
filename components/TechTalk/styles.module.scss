@@ -52,6 +52,7 @@
 
   &__paragraph {
     @include mixins.typography();
+    @extend %double-line-break;
 
     &+& {
       margin-top: 8px;
@@ -69,12 +70,6 @@
         margin-left: auto;
         margin-right: auto;
       }
-    }
-
-    br {
-      content: '';
-      display: block;
-      margin-bottom: 1em;
     }
   }
 }
