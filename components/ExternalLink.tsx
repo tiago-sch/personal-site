@@ -1,15 +1,15 @@
 interface ExternalLinkProps {
   href: string,
   className?: string
+  title?: string
 }
 
-const ExternalLink: React.FC<ExternalLinkProps> = ({ href, children, className }) => {
+const ExternalLink: React.FC<ExternalLinkProps> = ({ children, ...otherProps }) => {
   return (
     <a
-      href={href}
       target='_blank'
       rel='noopener nofollow'
-      className={className}
+      {...otherProps}
     >
       {children}
     </a>

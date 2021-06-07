@@ -1,0 +1,15 @@
+@use '../../styles/settings/mixins';
+
+.social {
+  padding: 48px 0;
+  text-align: center;
+
+  &__item {
+    display: inline-block;
+    margin: 24px;
+
+    @include mixins.breakpoint(md) {
+      margin: 0 24px;
+    }
+  }
+}

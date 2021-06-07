@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import ExternalLink from '../ExternalLink'
+import SocialBar from '../SocialBar'
 import classnames from 'classnames/bind'
 import styles from './styles.module.scss'
 
@@ -39,6 +40,7 @@ const BeyondDev:React.FC = () => {
             loading='lazy'
           />
         </div>
+        <SocialBar />
       </div>
     </section>
   )
