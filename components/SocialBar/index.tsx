@@ -54,6 +54,7 @@ const SocialBar:React.FC  = () => {
             layout='intrinsic'
             width={50}
             height={50}
+            loading='lazy'
           />
         </ExternalLink>
       ))}

@@ -30,7 +30,7 @@ const BeyondDev:React.FC = () => {
             {lieLink} or even check {youtubeLink}!<br/>
 
             Also I have a Instagram page called {tsouLink} where I share 3D prints
-            and RPG miniature paitings that I do.
+            and RPG miniature paintings that I do.
           </p>
           <Image
             src='/images/profile-photo.png'
