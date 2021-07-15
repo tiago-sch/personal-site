@@ -19,6 +19,7 @@ export default class MyDocument extends Document {
           <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
           <meta name="msapplication-TileColor" content="#6d23b6" />
           <meta name="theme-color" content="#6d23b6" />
+          <meta httpEquiv="Content-Security-Policy" content="default-src * 'self' data: 'unsafe-inline' 'unsafe-eval' *" />
         </Head>
         <body>
           <Main />
