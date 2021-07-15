@@ -38,6 +38,7 @@ const BeyondDev:React.FC = () => {
             width={400}
             height={400}
             loading='lazy'
+            alt="A picture of Tiago Schmidt playing bass"
           />
         </div>
         <SocialBar />

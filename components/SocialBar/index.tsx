@@ -55,6 +55,7 @@ const SocialBar:React.FC  = () => {
             width={50}
             height={50}
             loading='lazy'
+            alt={`${title} icon`}
           />
         </ExternalLink>
       ))}
