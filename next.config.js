@@ -21,13 +21,19 @@ const securityHeaders = [
   }
 ]
 
+const getSecurityHeaders = env => {
+  console.log(!env ? '>>> Empty Security Headers' : '>>> Complete Security Headers');
+  if (!env) return [];
+  return securityHeaders;
+}
+
 module.exports = {
   async headers() {
     return [
       {
         // Apply these headers to all routes in your application.
         source: '/(.*)',
-        headers: securityHeaders,
+        headers: getSecurityHeaders(process.env.ENV),
       },
       {
         source: '/:all*(svg|jpg|png|ttf|woff|woff2)',
