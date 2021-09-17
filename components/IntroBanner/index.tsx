@@ -10,7 +10,7 @@ const IntroBanner: React.FC = () => {
       <div className={cn('container', 'intro-banner__container')}>
         <div className={cn('intro-banner__content-holder')}>
           <h1 className={cn('intro-banner__title')}>
-            Hi! I'm Tiago!
+            Hi! I&apos;m Tiago!
           </h1>
           <p className={cn('intro-banner__subtitle')}>
             I enjoy creating websites that inspire creativity and

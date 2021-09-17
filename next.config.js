@@ -25,12 +25,7 @@ const getSecurityHeaders = env => {
 
 module.exports = {
   async headers() {
-    return [
-      {
-        // Apply these headers to all routes in your application.
-        source: '/(.*)',
-        headers: getSecurityHeaders(process.env.ENV),
-      },
+    const headers = [
       {
         source: '/:all*(svg|jpg|png|ttf|woff|woff2)',
         locale: false,
@@ -42,5 +37,16 @@ module.exports = {
         ],
       },
     ]
+
+    if(process.env.ENV) {
+      headers.push(
+        {
+          // Apply these headers to all routes in your application.
+          source: '/(.*)',
+          headers: getSecurityHeaders(process.env.ENV),
+        }
+      )
+    }
+    return headers;
   },
 }
