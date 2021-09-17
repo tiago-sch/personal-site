@@ -23,7 +23,7 @@ const BeyondDev:React.FC = () => {
         <h2 className={cn('beyond-dev__title')}>Beyond the developer</h2>
         <div className={cn('beyond-dev__content')}>
           <p className={cn('beyond-dev__paragraph')}>
-            When I'm not writing code or fixing bugs, normally I will be living
+            When I&apos;m not writing code or fixing bugs, normally I will be living
             the life of a musician or a geek/nerd.<br/>
 
             You are more than welcome to listen to my bands {tarsilaLink} and{' '}
