@@ -8,6 +8,13 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en-US">
         <Head>
+          <meta charSet="UTF-8" />
+          <meta httpEquiv="Content-Security-Policy" content="default-src * 'self' data: 'unsafe-inline' 'unsafe-eval' *" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=5"
+          />
+          <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
           {fonts.map(fontName => (
             <Fragment key={`font-preload-${fontName}`}>
               <link rel="preload" href={`/fonts/${fontName}.woff2`} as="font" type="font/woff2" crossOrigin="anonymous"/>
@@ -19,7 +26,6 @@ export default class MyDocument extends Document {
           <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
           <meta name="msapplication-TileColor" content="#6d23b6" />
           <meta name="theme-color" content="#6d23b6" />
-          <meta httpEquiv="Content-Security-Policy" content="default-src * 'self' data: 'unsafe-inline' 'unsafe-eval' *" />
         </Head>
         <body>
           <Main />
