@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import Image from 'next/image'
 import classnames from 'classnames/bind'
 import ExternalLink from '../ExternalLink'
@@ -40,25 +41,29 @@ const icons = [
 ];
 
 const SocialBar:React.FC  = () => {
+  const memoizedMap = useMemo(() => {
+    return icons.map(({ title, icon, link }) => (
+      <ExternalLink
+        href={link}
+        title={title}
+        key={`social-icon-${title}`}
+        className={cn('social__item')}
+      >
+        <Image
+          src={icon}
+          layout='intrinsic'
+          width={50}
+          height={50}
+          loading='lazy'
+          alt={`${title} icon`}
+        />
+      </ExternalLink>
+    )
+  )}, []);
+
   return (
     <div className={cn('social')}>
-      {icons.map(({ title, icon, link }) => (
-        <ExternalLink
-          href={link}
-          title={title}
-          key={`social-icon-${title}`}
-          className={cn('social__item')}
-        >
-          <Image
-            src={icon}
-            layout='intrinsic'
-            width={50}
-            height={50}
-            loading='lazy'
-            alt={`${title} icon`}
-          />
-        </ExternalLink>
-      ))}
+      {memoizedMap}
     </div>
   )
 }
