@@ -1,6 +1,9 @@
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import '../styles/global.scss'
+import { ThemeProvider } from 'styled-components'
+import GlobalStyles from '../styles/GlobalStyles'
+import theme from '../styles/settings/theme'
+// import '../styles/global.scss'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -17,7 +20,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="theme-color" content="#6d23b6" />
       </Head>
 
-      <Component {...pageProps} />
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <Component {...pageProps} />
+      </ThemeProvider>
     </>
   )
 }
