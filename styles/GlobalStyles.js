@@ -3,7 +3,7 @@ import StylesReset from './StylesReset'
 import { importFonts, bodyBaseSize } from './settings/stylesSetup'
 
 const GlobalStyles = createGlobalStyle`
-  /* ${StylesReset} */
+  ${StylesReset}
   ${importFonts()}
 
   *, html, body {
