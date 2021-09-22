@@ -1,10 +1,14 @@
 import { useMemo } from 'react';
-import Image from 'next/image'
-import ExternalLink from '../ExternalLink'
-import classnames from 'classnames/bind'
-import styles from './styles.module.scss'
-
-const cn = classnames.bind(styles)
+import Container from '../../styles/Container'
+import {
+  ProjectsWrapper,
+  ProjectsTitle,
+  ProjectsText,
+  ProjectsList,
+  ProjectItem,
+  ProjectImage,
+  ProjectName
+} from './styles'
 
 const imageFolder = '/images/portfolio/'
 const projects = [
@@ -33,37 +37,36 @@ const projects = [
 const PastProjects:React.FC = () => {
   const memoizedMap = useMemo(() => {
     return projects.map(({image, name, link}) => (
-      <div className={cn('past-projects__item')} key={`past-project-${name}`}>
-        <Image
+      <ProjectItem key={`past-project-${name}`}>
+        <ProjectImage
           src={image}
           alt={`Screenshot of ${name}'s website`}
           layout='intrinsic'
           width={252}
           height={145.5}
           loading='lazy'
-          className={cn('past-projects__item-screenshot')}
         />
-        <ExternalLink href={link} className={cn('past-projects__item-title')}>
+        <ProjectName href={link}>
           {name}
-        </ExternalLink>
-      </div>
+        </ProjectName>
+      </ProjectItem>
     ))
   }, []);
 
   return (
-    <section className={cn('past-projects')}>
-      <div className='container'>
-        <h2 className={cn('past-projects__title')}>Past projects</h2>
-        <p className={cn('past-projects__subtitle')}>
+    <ProjectsWrapper>
+      <Container>
+        <ProjectsTitle>Past projects</ProjectsTitle>
+        <ProjectsText>
           These are some of the projects I had the pleasure to work
           with in the past:
-        </p>
+        </ProjectsText>
 
-        <div className={cn('past-projects__list')}>
+        <ProjectsList>
           {memoizedMap}
-        </div>
-      </div>
-    </section>
+        </ProjectsList>
+      </Container>
+    </ProjectsWrapper>
   )
 }
 
