@@ -1,10 +1,6 @@
 import { useMemo } from 'react';
 import Image from 'next/image'
-import classnames from 'classnames/bind'
-import ExternalLink from '../ExternalLink'
-import styles from './styles.module.scss'
-
-const cn = classnames.bind(styles)
+import { SocialWrapper, SocialItem } from './styles'
 
 const iconDir = '/images/social/'
 const icons = [
@@ -43,11 +39,10 @@ const icons = [
 const SocialBar:React.FC  = () => {
   const memoizedMap = useMemo(() => {
     return icons.map(({ title, icon, link }) => (
-      <ExternalLink
+      <SocialItem
         href={link}
         title={title}
         key={`social-icon-${title}`}
-        className={cn('social__item')}
       >
         <Image
           src={icon}
@@ -57,14 +52,14 @@ const SocialBar:React.FC  = () => {
           loading='lazy'
           alt={`${title} icon`}
         />
-      </ExternalLink>
+      </SocialItem>
     )
   )}, []);
 
   return (
-    <div className={cn('social')}>
+    <SocialWrapper>
       {memoizedMap}
-    </div>
+    </SocialWrapper>
   )
 }
 

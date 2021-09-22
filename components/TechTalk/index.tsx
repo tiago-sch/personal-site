@@ -1,10 +1,14 @@
 import Image from 'next/image'
 import ListWithIcons from '../ListWithIcons'
 import ExternalLink from '../ExternalLink'
-import classnames from 'classnames/bind'
-import styles from './styles.module.scss'
-
-const cn = classnames.bind(styles)
+import {
+  TechTalkContainer,
+  TechTalkHeader,
+  TechTalkImageHolder,
+  TechTalkHeaderContent,
+  TechTalkTitle,
+  TechTalkText
+} from './styles'
 
 const TechTalk: React.FC = () => {
   const illustrationWidth = 350
@@ -42,38 +46,37 @@ const TechTalk: React.FC = () => {
   const functionlStylingLink = 'https://rangle.io/blog/styling-with-functional-css/'
 
   return (
-    <section className={cn('container', 'tech-talk')}>
+    <TechTalkContainer as={'section'}>
 
-      <div className={cn('tech-talk-header')}>
-        <div className={cn('tech-talk-header__image-holder')}>
+      <TechTalkHeader>
+        <TechTalkImageHolder>
           <Image
             src="/images/mirage-start-up-launch.png"
             alt="Illustration of a computer wtih a hourglass in the screen, the World Wide Web icon in the background and a rocket flying with a speech bubble"
             layout="intrinsic"
             width={illustrationWidth}
             height={illustrationWidth * 0.75}
-            className={cn('tech-talk-header__ilustration')}
           />
-        </div>
+        </TechTalkImageHolder>
 
-        <div className={cn('tech-talk-header__content')}>
-          <h2 className={cn('tech-talk__title')}>Tech talk</h2>
-          <p className={cn('tech-talk__paragraph')}>
+        <TechTalkHeaderContent>
+          <TechTalkTitle>Tech talk</TechTalkTitle>
+          <TechTalkText>
             Over the years I had the pleasure to work in a wide range of projects,
             from static landing pages to complex web applications. It allowed me
             to work in a wide variety of teams, technologies, frameworks and cultures.
-          </p>
-          <p className={cn('tech-talk__paragraph')}>
+          </TechTalkText>
+          <TechTalkText>
             This is a sample of programming languages and frameworks I have experience with:
-          </p>
-        </div>
-      </div>
+          </TechTalkText>
+        </TechTalkHeaderContent>
+      </TechTalkHeader>
 
       <ListWithIcons {...languages} />
       <ListWithIcons {...frameworks} />
 
       <div>
-        <p className={cn('tech-talk__paragraph', 'tech-talk__paragraph--center', 'tech-talk__paragraph--compact')}>
+        <TechTalkText $compact $center>
           We all know that today the most commonly used programming language is{' '}
           <ExternalLink href={stackoverflowDevSurveyLink}>
             JavaScript
@@ -87,10 +90,10 @@ const TechTalk: React.FC = () => {
           for styling using <ExternalLink href={getBEMLink}>BEM</ExternalLink>{' '}
           and <ExternalLink href={functionlStylingLink}>functional styling</ExternalLink>{' '}
           methodologies and frameworks like CSS Modules or Styled Components.
-        </p>
+        </TechTalkText>
       </div>
 
-    </section>
+    </TechTalkContainer>
   )
 };
 
