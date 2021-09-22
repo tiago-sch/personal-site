@@ -3,7 +3,6 @@ import Head from 'next/head'
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from '../styles/GlobalStyles'
 import theme from '../styles/settings/theme'
-// import '../styles/global.scss'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

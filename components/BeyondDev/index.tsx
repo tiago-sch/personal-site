@@ -1,10 +1,8 @@
 import Image from 'next/image'
+import Container from '../../styles/Container'
 import ExternalLink from '../ExternalLink'
 import SocialBar from '../SocialBar'
-import classnames from 'classnames/bind'
-import styles from './styles.module.scss'
-
-const cn = classnames.bind(styles)
+import { BeyondDevWrapper, BeyondDevContent, BeyondDevTitle, BeyondDevParagraph, BeyondDevImageHolder } from './styles'
 
 const BeyondDev:React.FC = () => {
   const tarsilaUrl = 'https://open.spotify.com/artist/3UJ7HEUS0wxJ5GpfVoyYzP?si=3O4svjqAR0WYk0r_hs_kHw'
@@ -18,11 +16,11 @@ const BeyondDev:React.FC = () => {
   const tsouLink = <ExternalLink href={tsouUrl}>Tsou Painting</ExternalLink>
 
   return (
-    <section className={cn('beyond-dev')}>
-      <div className='container'>
-        <h2 className={cn('beyond-dev__title')}>Beyond the developer</h2>
-        <div className={cn('beyond-dev__content')}>
-          <p className={cn('beyond-dev__paragraph')}>
+    <BeyondDevWrapper>
+      <Container>
+        <BeyondDevTitle>Beyond the developer</BeyondDevTitle>
+        <BeyondDevContent>
+          <BeyondDevParagraph>
             When I&apos;m not writing code or fixing bugs, normally I will be living
             the life of a musician or a geek/nerd.<br/>
 
@@ -31,19 +29,21 @@ const BeyondDev:React.FC = () => {
 
             Also I have a Instagram page called {tsouLink} where I share 3D prints
             and RPG miniature paintings that I do.
-          </p>
-          <Image
-            src='/images/profile-photo.png'
-            layout='intrinsic'
-            width={400}
-            height={400}
-            loading='lazy'
-            alt="A picture of Tiago Schmidt playing bass"
-          />
-        </div>
+          </BeyondDevParagraph>
+          <BeyondDevImageHolder>
+            <Image
+              src='/images/profile-photo.png'
+              layout='intrinsic'
+              width={400}
+              height={400}
+              loading='lazy'
+              alt="A picture of Tiago Schmidt playing bass"
+            />
+          </BeyondDevImageHolder>
+        </BeyondDevContent>
         <SocialBar />
-      </div>
-    </section>
+      </Container>
+    </BeyondDevWrapper>
   )
 }
 
