@@ -28,6 +28,7 @@ const getSecurityHeaders = env => {
 }
 
 const config = {
+  swcMinify: true,
   async headers() {
     const headers = [
       {
