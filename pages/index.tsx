@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { GetStaticProps } from 'next'
 
 import IntroBanner from '../components/IntroBanner'
 import TechTalk from '../components/TechTalk'
