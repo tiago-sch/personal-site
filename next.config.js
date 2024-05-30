@@ -29,6 +29,9 @@ const getSecurityHeaders = env => {
 
 const config = {
   swcMinify: true,
+  compiler: {
+    styledComponents: true,
+  },
   async headers() {
     const headers = [
       {

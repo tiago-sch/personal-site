@@ -33,7 +33,6 @@ const BeyondDev:React.FC = () => {
           <BeyondDevImageHolder>
             <Image
               src='/images/profile-photo.png'
-              layout='intrinsic'
               width={400}
               height={400}
               loading='lazy'

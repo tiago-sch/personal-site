@@ -46,7 +46,6 @@ const SocialBar:React.FC  = () => {
       >
         <Image
           src={icon}
-          layout='intrinsic'
           width={50}
           height={50}
           loading='lazy'

@@ -53,7 +53,6 @@ const TechTalk: React.FC = () => {
           <Image
             src="/images/mirage-start-up-launch.png"
             alt="Illustration of a computer wtih a hourglass in the screen, the World Wide Web icon in the background and a rocket flying with a speech bubble"
-            layout="intrinsic"
             width={illustrationWidth}
             height={illustrationWidth * 0.75}
           />
@@ -76,7 +75,7 @@ const TechTalk: React.FC = () => {
       <ListWithIcons {...frameworks} />
 
       <div>
-        <TechTalkText $compact $center>
+        <TechTalkText $center $compact>
           We all know that today the most commonly used programming language is{' '}
           <ExternalLink href={stackoverflowDevSurveyLink}>
             JavaScript

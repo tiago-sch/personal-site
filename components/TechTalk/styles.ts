@@ -52,7 +52,12 @@ export const TechTalkTitle = styled.h2`
   }
 `
 
-export const TechTalkText = styled.p`
+type TechTalkTextProps = {
+  $center?: Boolean; 
+  $compact?: Boolean;
+};
+
+export const TechTalkText = styled.p<TechTalkTextProps>`
   ${({ theme }) => theme.mixins.typography('body')}
   ${({ theme }) => theme.doubleLineBreak }
 

@@ -15,7 +15,11 @@ export const ChatHeader = styled.h1`
   text-align: center;
 `;
 
-export const ChatBubble = styled.div`
+type ChatBubbleProps = {
+  $isMe?: boolean;
+};
+
+export const ChatBubble = styled.div<ChatBubbleProps>`
   background-color: #f1f0f0;
   border-radius: 8px;
   padding: 12px;

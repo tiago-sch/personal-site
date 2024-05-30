@@ -41,7 +41,6 @@ const PastProjects:React.FC = () => {
         <ProjectImage
           src={image}
           alt={`Screenshot of ${name}'s website`}
-          layout='intrinsic'
           width={252}
           height={145.5}
           loading='lazy'

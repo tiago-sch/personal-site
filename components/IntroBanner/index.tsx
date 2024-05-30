@@ -25,7 +25,6 @@ const IntroBanner: React.FC = () => {
           <BannerImage
             src="/images/mirage-pale.png"
             alt="Illustration of an astronaut in space attached to a rocket with a cable"
-            layout="intrinsic"
             width={450}
             height={450}
             priority

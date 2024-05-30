@@ -27,7 +27,6 @@ const ListWithIcons: React.FC<ListWithIconProp> = ({ title, items }) => {
           <Image
             src={`/images/${item.icon}`}
             alt={`${item.name} logo image`}
-            layout='intrinsic'
             width={100}
             height={100}
             loading='lazy'

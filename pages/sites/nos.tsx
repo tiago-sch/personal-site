@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import linkifyHtml from 'linkify-html';
 
-import { ChatConvoWrapper, ChatHeader, ChatBubble, ChatUser, ChatLike } from './_nos.styles';
+import { ChatConvoWrapper, ChatHeader, ChatBubble, ChatUser, ChatLike } from '../../styles/_nos.styles';
 import convo from './_convo.json'
 
 export default function Nos() {
