@@ -76,7 +76,8 @@ const TechTalk: React.FC = () => {
 
       <div>
         <TechTalkText $center $compact>
-          We all know that today the most commonly used programming language is{' '}
+          We all know that today the one of the most commonly used
+          programming language is{' '}
           <ExternalLink href={stackoverflowDevSurveyLink}>
             JavaScript
           </ExternalLink>{' '}
