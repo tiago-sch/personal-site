@@ -18,9 +18,8 @@ const LDJson = {
   "nationality": "Brazilian",
   "url": "https://www.tiagoschmidt.com",
   "sameAs" : [
-    "https://www.facebook.com/schmidt.tiago/",
     "https://www.linkedin.com/in/t-schmidt/",
-    "https://github.com/schmidtas/",
+    "https://github.com/iago-sch/",
     "https://www.instagram.com/tiago.sch/",
     "https://www.youtube.com/channel/UC3rwmHd3_QSePebtxolkTng"
   ]
@@ -29,7 +28,7 @@ const LDJson = {
 export default function Home() {
   if (process.browser) {
     console.info('Interested in the code? Let me know and I can send you the git repo or maybe schedule a quick call!! 😄')
-    console.info('tiagohammett@gmail.com / https://github.com/schmidtas')
+    console.info('tiagohammett@gmail.com / https://github.com/tiago-sch')
   }
 
   return (

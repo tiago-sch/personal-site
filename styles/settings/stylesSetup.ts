@@ -58,9 +58,11 @@ const typographies = {
     xs: bodyBaseSize,
     md: 18
   }
-}
+} as Record<string, Record<string, number>>;
 
-export const breakpoint = (bpMin, bpMax) => {
+type BreakpointHelper = (bpMin: keyof typeof breakpoints, bpMax?: keyof typeof breakpoints) => string;
+
+export const breakpoint: BreakpointHelper = (bpMin, bpMax) => {
   const min = breakpoints[bpMin];
   const max = breakpoints[bpMax];
   if (!min) return '&';
@@ -80,7 +82,7 @@ export const typography = (type = 'body', weight) => {
   }
 
   Object.entries(otherBreakpoints).forEach(([bp, size]) => {
-    style += `${breakpoint(bp)} {
+    style += `${breakpoint(bp as keyof typeof breakpoints)} {
       font-size: ${rem(size)};
     }`
   })

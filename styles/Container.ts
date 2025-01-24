@@ -5,7 +5,7 @@ const renderBreakpoints = () => {
   let style;
 
   Object.entries(containerMaxWidths).forEach(([bp, width]) => {
-    style += `${breakpoint(bp)} {
+    style += `${breakpoint(bp as keyof typeof containerMaxWidths)} {
       max-width: ${width}px;
     }`
   })

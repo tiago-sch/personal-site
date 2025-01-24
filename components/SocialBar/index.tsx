@@ -17,17 +17,12 @@ const icons = [
   {
     title: 'GitHub',
     icon: `${iconDir}github.svg`,
-    link: 'https://github.com/schmidtas/'
+    link: 'https://github.com/tiago-sch/'
   },
   {
     title: 'Instagram',
     icon: `${iconDir}instagram.svg`,
     link: 'https://www.instagram.com/tiago.sch/'
-  },
-  {
-    title: 'Facebook',
-    icon: `${iconDir}facebook.svg`,
-    link: 'https://www.facebook.com/schmidt.tiago/'
   },
   {
     title: 'YouTube',
