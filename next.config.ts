@@ -75,6 +75,12 @@ const config: NextConfig = {
       },
     },
   },
+  sassOptions: {
+    logger: {
+      warn: (message: string) => console.warn(message),
+      debug: (message: string) => console.log(message)
+    }
+  }
 }
 
 module.exports = withBundleAnalyzer(config);

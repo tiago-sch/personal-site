@@ -1,4 +1,5 @@
-import Head from 'next/head'
+import { type Metadata } from 'next'
+import type { Viewport } from 'next'
 
 import IntroBanner from '../components/IntroBanner'
 import TechTalk from '../components/TechTalk'
@@ -25,22 +26,26 @@ const LDJson = {
   ]
 }
 
-export default function Home() {
-  if (typeof window !== undefined) {
+export const metadata: Metadata = {
+  title: "Tiago Schmidt | Web Developer",
+  description: "Web developer, technology enthusiast, musician and a huge geek/nerd. Nice to meet you!",
+}
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#6d23b6",
+}
+
+const Home = () => {
+  if (typeof window !== 'undefined') {
     console.info('Interested in the code? Let me know and I can send you the git repo or maybe schedule a quick call!! 😄')
     console.info('tiagohammett@gmail.com / https://github.com/tiago-sch')
   }
 
   return (
     <>
-      <Head>
-        <title>Tiago Schmidt | Web Developer</title>
-        <meta
-          name="description"
-          content="Web developer, technology enthusiast, musician and a huge geek/nerd. Nice to meet you!"
-        />
-      </Head>
-
       <IntroBanner />
       <TechTalk />
       <PastProjects />
@@ -53,3 +58,5 @@ export default function Home() {
     </>
   )
 }
+
+export default Home;

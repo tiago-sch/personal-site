@@ -1,8 +1,5 @@
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import { ThemeProvider } from 'styled-components'
-import GlobalStyles from '../styles/GlobalStyles'
-import theme from '../styles/settings/theme'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -18,11 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="msapplication-TileColor" content="#6d23b6" />
         <meta name="theme-color" content="#6d23b6" />
       </Head>
-
-      <ThemeProvider theme={theme}>
-        <GlobalStyles />
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <Component {...pageProps} />
     </>
   )
 }

@@ -1,0 +1,43 @@
+@use "../../styles/mixins";
+
+.beyond-dev {
+  padding: 48px 0;
+
+  &__content {
+    @include mixins.breakpoint(md) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 24px;
+    font-weight: bold;
+
+    @include mixins.typography(title2);
+  }
+
+  &__text {
+    @include mixins.typography(body);
+    @include mixins.doubleLineBreak;
+    @include mixins.breakpoint(md) {
+      max-width: 50%;
+    }
+  }
+
+  &__image-holder {
+    text-align: center;
+    margin: auto auto;
+    width: 400px;
+    height: 400px;
+    max-width: 100%;
+    position: relative;
+  }
+
+  &__foot-note {
+    text-align: center;
+    font-size: 14px;
+  }
+}

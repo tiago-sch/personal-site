@@ -1,0 +1,52 @@
+@use "../../styles/mixins";
+
+.projects {
+  background-color: var(--violetRyb);
+  padding: 48px 0;
+
+  &__title {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    @include mixins.typography('title2');
+  }
+
+  &__text {
+    color: white;
+    @include mixins.typography('body');
+    
+    @include mixins.breakpoint('md') {
+      text-align: center;
+    };
+  }
+
+  &__list {
+    margin-top: 36px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__list-item {
+    text-align: center;
+    flex-basis: 100%;
+    padding: 0 8px 24px;
+  
+    @include mixins.breakpoint(md) {
+      flex-basis: 50%;
+    }
+  
+    @include mixins.breakpoint(xl) {
+      flex-basis: 25%;
+      margin-bottom: 0;
+    }
+  }
+
+  &__image {
+    border-radius: 4px;
+  }
+
+  &__item-project-name {
+    display: block;
+    @include mixins.typography('body');
+  }
+}

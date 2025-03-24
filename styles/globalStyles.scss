@@ -1,0 +1,184 @@
+@use "sass:string";
+@use "./mixins";
+
+@font-face {
+  font-family: "Rubik";
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/Rubik-Regular.woff2") format('woff2'),
+      url("/fonts/Rubik-Regular.woff") format('woff'),
+      url("/fonts/Rubik-Regular.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: "Rubik";
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/Rubik-Bold.woff2") format('woff2'),
+      url("/fonts/Rubik-Bold.woff") format('woff'),
+      url("/fonts/Rubik-Bold.ttf") format('truetype');
+}
+
+:root {
+  --blush: #ea698b;
+  --fandangoPink: #d55d92;
+  --mulberryCrayola: #c05299;
+  --byzantine: #ac46a1;
+  --purpureus: #973aa8;
+  --violetRyb: #822faf;
+  --purple: #6d23b6;
+  --purple2: #6411ad;
+  --blueVioletColorWheel: #571089;
+  --blueVioletColorWheel2: #47126b;
+  --onyx: #3d3d3d;
+  --spanishGray: #8f8f8f;
+  --lightGray: #d6d6d6;
+}
+
+// Reset
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote,pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+
+  &:before, &:after {
+    content: '';
+    content: none;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+// Own Styles
+
+*, html, body {
+  font-family: 'Rubik', sans-serif;
+  line-height: 1.5;
+  font-size: 16px;
+  color: var(--lightGray);
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--blueVioletColorWheel2);
+}
+
+h1 {
+  font-weight: bold;
+  @include mixins.typography('title1');
+};
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(15px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+.h1 {
+  font-weight: bold;
+  font-family: 'Rubik', sans-serif;
+  color: var(--lightGray);
+  text-align: 'left';
+  text-align: center;
+  margin-bottom: 24px;
+  @include mixins.typography('title1');
+}
+
+.h2 {
+  color: var(--lightGray);
+  text-align: 'left';
+  text-align: center;
+  margin-bottom: 16px;
+  @include mixins.typography('title3');
+};
+
+.h3 {
+  color: var(--lightGray);
+  text-align: 'left';
+  text-align: center;
+  margin-bottom: 8px;
+  @include mixins.typography('title3');
+};
+
+.text-left {
+  text-align: 'left';
+}
+
+.text-center {
+  text-align: 'center';
+}
+
+.text-right {
+  text-align: 'right';
+}
+
+.button {
+  color: var(--mulberryCrayola);
+};
+
+$containerMaxWidths: (
+  sm: 400px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  wd: 1330px
+);
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+
+  @each $key, $value in $containerMaxWidths {
+    @include mixins.breakpoint($key) {
+      max-width: $value;
+    }
+  }
+
+}
