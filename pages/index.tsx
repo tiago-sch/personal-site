@@ -26,7 +26,7 @@ const LDJson = {
 }
 
 export default function Home() {
-  if (process.browser) {
+  if (typeof window !== undefined) {
     console.info('Interested in the code? Let me know and I can send you the git repo or maybe schedule a quick call!! 😄')
     console.info('tiagohammett@gmail.com / https://github.com/tiago-sch')
   }

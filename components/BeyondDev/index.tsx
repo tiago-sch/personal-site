@@ -2,19 +2,28 @@ import Image from 'next/image'
 import Container from '../../styles/Container'
 import ExternalLink from '../ExternalLink'
 import SocialBar from '../SocialBar'
-import { BeyondDevWrapper, BeyondDevContent, BeyondDevTitle, BeyondDevParagraph, BeyondDevImageHolder } from './styles'
+import {
+  BeyondDevWrapper,
+  BeyondDevContent,
+  BeyondDevTitle,
+  BeyondDevParagraph,
+  BeyondDevImageHolder,
+  BeyondDevFooterNote,
+} from './styles'
+
+const tarsilaUrl = 'https://open.spotify.com/artist/3UJ7HEUS0wxJ5GpfVoyYzP?si=3O4svjqAR0WYk0r_hs_kHw'
+const tarsilaLink = <ExternalLink href={tarsilaUrl}>Tarsila</ExternalLink>
+
+const lieUrl = 'https://open.spotify.com/artist/0isGagp4GJj7lmcTv5xwbI?si=5WQj_AbNT9GBQzwox1EgFQ'
+const lieLink = <ExternalLink href={lieUrl}>Letters Into Eternity</ExternalLink>
+
+const youtubeUrl= 'https://www.youtube.com/channel/UC3rwmHd3_QSePebtxolkTng'
+const youtubeLink = <ExternalLink href={youtubeUrl}>my videos in YouTube</ExternalLink>
+
+const tsouUrl = 'https://www.instagram.com/tsou.painting/'
+const tsouLink = <ExternalLink href={tsouUrl}>Tsou Painting</ExternalLink>
 
 const BeyondDev:React.FC = () => {
-  const tarsilaUrl = 'https://open.spotify.com/artist/3UJ7HEUS0wxJ5GpfVoyYzP?si=3O4svjqAR0WYk0r_hs_kHw'
-  const lieUrl = 'https://open.spotify.com/artist/0isGagp4GJj7lmcTv5xwbI?si=5WQj_AbNT9GBQzwox1EgFQ'
-  const youtubeUrl= 'https://www.youtube.com/channel/UC3rwmHd3_QSePebtxolkTng'
-  const tsouUrl = 'https://www.instagram.com/tsou.painting/'
-
-  const tarsilaLink = <ExternalLink href={tarsilaUrl}>Tarsila</ExternalLink>
-  const lieLink = <ExternalLink href={lieUrl}>Letters Into Eternity</ExternalLink>
-  const youtubeLink = <ExternalLink href={youtubeUrl}>my videos in YouTube</ExternalLink>
-  const tsouLink = <ExternalLink href={tsouUrl}>Tsou Painting</ExternalLink>
-
   return (
     <BeyondDevWrapper>
       <Container>
@@ -33,14 +42,19 @@ const BeyondDev:React.FC = () => {
           <BeyondDevImageHolder>
             <Image
               src='/images/profile-photo.png'
-              width={400}
-              height={400}
+              fill
+              style={{
+                objectFit: 'contain',
+              }}
               loading='lazy'
               alt="A picture of Tiago Schmidt playing bass"
             />
           </BeyondDevImageHolder>
         </BeyondDevContent>
         <SocialBar />
+        <BeyondDevFooterNote>
+          Proudly built using React, Typescript, NextJS and Styled Components.
+        </BeyondDevFooterNote>
       </Container>
     </BeyondDevWrapper>
   )

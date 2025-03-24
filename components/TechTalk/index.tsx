@@ -10,41 +10,39 @@ import {
   TechTalkText
 } from './styles'
 
+const languages = {
+  title: 'Languages',
+  items: [
+    { name: 'HTML 5', icon: 'tech/html5.png' },
+    { name: 'CSS 3', icon: 'tech/css3.png' },
+    { name: 'SASS/SCSS', icon: 'tech/sass.png' },
+    { name: 'JavaScript ES6 ', icon: 'tech/javascript.png' },
+    { name: 'TypeScript', icon: 'tech/typescript.png' },
+    { name: 'Python', icon: 'tech/python.png' },
+    { name: 'PHP', icon: 'tech/php.png' },
+    { name: 'SQL', icon: 'tech/sql.png' }
+  ]
+}
+
+const frameworks = {
+  title: 'Frameworks  & Tools',
+  items: [
+    { name: 'React', icon: 'tech/react.png' },
+    { name: 'Node', icon: 'tech/node.png' },
+    { name: 'Jest', icon: 'tech/jest.png' },
+    { name: 'Next JS', icon: 'tech/next.png' },
+    { name: 'Webpack', icon: 'tech/webpack.png' },
+    { name: 'Tailwind', icon: 'tech/tailwind.png' },
+    { name: 'Laravel', icon: 'tech/laravel.png' },
+    { name: 'Django', icon: 'tech/django.png' }
+  ]
+}
+
+const stackoverflowDevSurveyLink = 'https://www.freecodecamp.org/news/stack-overflow-developer-survey-2020-programming-language-framework-salary-data/'
+const getBEMLink = 'http://getbem.com/introduction/'
+const functionlStylingLink = 'https://rangle.io/blog/styling-with-functional-css/'
+
 const TechTalk: React.FC = () => {
-  const illustrationWidth = 350
-
-  const languages = {
-    title: 'Languages',
-    items: [
-      { name: 'HTML 5', icon: 'tech/html5.png' },
-      { name: 'CSS 3', icon: 'tech/css3.png' },
-      { name: 'SASS/SCSS', icon: 'tech/sass.png' },
-      { name: 'JavaScript ES6 ', icon: 'tech/javascript.png' },
-      { name: 'TypeScript', icon: 'tech/typescript.png' },
-      { name: 'Python', icon: 'tech/python.png' },
-      { name: 'PHP', icon: 'tech/php.png' },
-      { name: 'SQL', icon: 'tech/sql.png' }
-    ]
-  }
-
-  const frameworks = {
-    title: 'Frameworks  & Tools',
-    items: [
-      { name: 'React', icon: 'tech/react.png' },
-      { name: 'Node', icon: 'tech/node.png' },
-      { name: 'Jest', icon: 'tech/jest.png' },
-      { name: 'Next JS', icon: 'tech/next.png' },
-      { name: 'Webpack', icon: 'tech/webpack.png' },
-      { name: 'Tailwind', icon: 'tech/tailwind.png' },
-      { name: 'Laravel', icon: 'tech/laravel.png' },
-      { name: 'Django', icon: 'tech/django.png' }
-    ]
-  }
-
-  const stackoverflowDevSurveyLink = 'https://www.freecodecamp.org/news/stack-overflow-developer-survey-2020-programming-language-framework-salary-data/'
-  const getBEMLink = 'http://getbem.com/introduction/'
-  const functionlStylingLink = 'https://rangle.io/blog/styling-with-functional-css/'
-
   return (
     <TechTalkContainer as={'section'}>
 
@@ -53,8 +51,7 @@ const TechTalk: React.FC = () => {
           <Image
             src="/images/mirage-start-up-launch.png"
             alt="Illustration of a computer wtih a hourglass in the screen, the World Wide Web icon in the background and a rocket flying with a speech bubble"
-            width={illustrationWidth}
-            height={illustrationWidth * 0.75}
+            fill
           />
         </TechTalkImageHolder>
 

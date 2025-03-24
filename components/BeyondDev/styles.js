@@ -29,4 +29,14 @@ export const BeyondDevParagraph = styled.p`
 
 export const BeyondDevImageHolder = styled.div`
   text-align: center;
+  margin: auto auto;
+  width: 400px;
+  height: 400px;
+  max-width: 100%;
+  position: relative;
 `
+
+export const BeyondDevFooterNote = styled.p`
+  text-align: center;
+  font-size: 14px;
+`;

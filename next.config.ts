@@ -1,4 +1,13 @@
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
+import { type NextConfig } from "next";
+import analyzer from "@next/bundle-analyzer";
+
+type HeaderItem = {
+  source: string;
+  locale?: false;
+  headers: { key: string; value: string; }[];
+};
+
+const withBundleAnalyzer = analyzer({
   enabled: process.env.ANALYZE === 'true',
 })
 
@@ -21,19 +30,18 @@ const securityHeaders = [
   }
 ]
 
-const getSecurityHeaders = env => {
+const getSecurityHeaders = (env?: string) => {
   console.log(!env ? '>>> Empty Security Headers' : '>>> Complete Security Headers');
   if (!env) return [];
   return securityHeaders;
 }
 
-const config = {
-  swcMinify: true,
+const config: NextConfig = {
   compiler: {
     styledComponents: true,
   },
   async headers() {
-    const headers = [
+    const headers: HeaderItem[] = [
       {
         source: '/:all*(svg|jpg|png|ttf|woff|woff2)',
         locale: false,
@@ -56,6 +64,16 @@ const config = {
       )
     }
     return headers;
+  },
+  experimental: {
+    turbo: {
+      rules: {
+        '*.svg': {
+          loaders: ['@svgr/webpack'],
+          as: '*.js',
+        },
+      },
+    },
   },
 }
 

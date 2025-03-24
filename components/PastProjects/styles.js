@@ -37,7 +37,7 @@ export const ProjectItem = styled.li`
     flex-basis: 50%;
   }
 
-  ${({ theme }) => theme.mixins.breakpoint('lg')} {
+  ${({ theme }) => theme.mixins.breakpoint('xl')} {
     flex-basis: 25%;
     margin-bottom: 0;
   }

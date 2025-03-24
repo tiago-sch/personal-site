@@ -23,17 +23,21 @@ export const TechTalkHeader = styled.div`
 `
 
 export const TechTalkImageHolder = styled.div`
-  flex-basis: 100%;
-  margin-bottom: 16px;
-  text-align: center;
-
+  width: 250px;
+  height: calc(.75 * 250px);
+  max-width: 100%;
+  position: relative;
+  margin: auto auto 16px;
+  
   ${({ theme }) => theme.mixins.breakpoint('md')} {
     margin-bottom: 0;
-    flex-basis: 350px;
+    width: 350px;
+    height: calc(.75 * 350px);
   }
 `
 
 export const TechTalkHeaderContent = styled.div`
+  object-fit: contain;
   flex-basis: 100%;
 
   ${({ theme }) => theme.mixins.breakpoint('md')} {

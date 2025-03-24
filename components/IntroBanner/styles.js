@@ -17,7 +17,7 @@ export const BannerContainer = styled(Container)`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  min-height: 100vh;
+  min-height: 80vh;
 
   @supports (-webkit-touch-callout: none) {
     min-height: -webkit-fill-available;
@@ -76,19 +76,22 @@ export const BannerSubtitle = styled.p`
 `
 
 export const ImageHolder = styled.div`
-  flex-basis: 100%;
-  min-width: 300px;
+  width: 250px;
+  height: 250px;
+  position: relative;
+  
+  ${({ theme }) => theme.mixins.breakpoint('sm')} {
+    width: 300px;
+    height: 300px;
+  }
 
   ${({ theme }) => theme.mixins.breakpoint('md')} {
-    flex-basis: 35%;
+    width: 350px;
+    height: 350px;
   }
 `
 
 export const BannerImage = styled(Image)`
-  width: 350px;
   height: auto;
-
-  ${({ theme }) => theme.mixins.breakpoint('md')} {
-    animation: float 6s ease-in-out infinite;
-  }
+  object-fit: contain,
 `
