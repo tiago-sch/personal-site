@@ -1,0 +1,23 @@
+@use "../../styles/mixins";
+
+.social {
+  padding: 12px 0;
+  text-align: center;
+  max-width: 310px;
+  margin: 0 auto;
+
+  @include mixins.breakpoint(md) {
+    padding: 48px 0;
+    max-width: 100%;
+  }
+
+  &__item {
+    display: inline-block;
+    margin: 12px;
+
+    @include mixins.breakpoint(md) {
+      margin: 24px;
+      margin: 0 24px;
+    }
+  }
+}

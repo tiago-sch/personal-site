@@ -1,13 +1,6 @@
 import { useMemo } from 'react';
 import Image from 'next/image'
-import {
-  ListWrapper,
-  ListTitle,
-  IconList,
-  IconItem,
-  IconHolder,
-  IconTitle
-} from './styles'
+import styles from './styles.module.scss';
 
 interface ListItem {
   name: string
@@ -22,8 +15,8 @@ interface ListWithIconProp {
 const ListWithIcons: React.FC<ListWithIconProp> = ({ title, items }) => {
   const memoizedMap = useMemo(() => {
     return items.map(item => (
-      <IconItem key={`${title}--${item.name}`}>
-        <IconHolder>
+      <li className={styles["icon-list__list-item"]} key={`${title}--${item.name}`}>
+        <div className={styles["icon-list__icon-holder"]}>
           <Image
             src={`/images/${item.icon}`}
             alt={`${item.name} logo image`}
@@ -31,21 +24,21 @@ const ListWithIcons: React.FC<ListWithIconProp> = ({ title, items }) => {
             height={100}
             loading='lazy'
           />
-        </IconHolder>
-        <IconTitle>
+        </div>
+        <p className={styles["icon-list__icon-title"]}>
           {item.name}
-        </IconTitle>
-      </IconItem>
+        </p>
+      </li>
     ))
   }, [title, items]);
 
   return (
-    <ListWrapper>
-      <ListTitle>{title}</ListTitle>
-      <IconList>
+    <div className={styles["icon-list"]}>
+      <h3 className={styles["icon-list__title"]}>{title}</h3>
+      <ul className={styles["icon-list__list"]}>
         {memoizedMap}
-      </IconList>
-    </ListWrapper>
+      </ul>
+    </div>
   )
 }
 

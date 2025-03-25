@@ -37,9 +37,6 @@ const getSecurityHeaders = (env?: string) => {
 }
 
 const config: NextConfig = {
-  compiler: {
-    styledComponents: true,
-  },
   async headers() {
     const headers: HeaderItem[] = [
       {
@@ -74,6 +71,21 @@ const config: NextConfig = {
         },
       },
     },
+  },
+  sassOptions: {
+    logger: {
+      warn: (message: string) => console.warn(message),
+      debug: (message: string) => console.log(message)
+    }
+  },
+  images: {
+    remotePatterns: [{
+      protocol: 'https',
+      hostname: 'lh3.googleusercontent.com',
+      port: '',
+      pathname: '/**',
+      search: '',
+    }]
   },
 }
 

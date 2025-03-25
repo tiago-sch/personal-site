@@ -1,15 +1,7 @@
 import Image from 'next/image'
-import Container from '../../styles/Container'
 import ExternalLink from '../ExternalLink'
 import SocialBar from '../SocialBar'
-import {
-  BeyondDevWrapper,
-  BeyondDevContent,
-  BeyondDevTitle,
-  BeyondDevParagraph,
-  BeyondDevImageHolder,
-  BeyondDevFooterNote,
-} from './styles'
+import styles from "./styles.module.scss";
 
 const tarsilaUrl = 'https://open.spotify.com/artist/3UJ7HEUS0wxJ5GpfVoyYzP?si=3O4svjqAR0WYk0r_hs_kHw'
 const tarsilaLink = <ExternalLink href={tarsilaUrl}>Tarsila</ExternalLink>
@@ -25,11 +17,11 @@ const tsouLink = <ExternalLink href={tsouUrl}>Tsou Painting</ExternalLink>
 
 const BeyondDev:React.FC = () => {
   return (
-    <BeyondDevWrapper>
-      <Container>
-        <BeyondDevTitle>Beyond the developer</BeyondDevTitle>
-        <BeyondDevContent>
-          <BeyondDevParagraph>
+    <section className={styles["beyond-dev"]}>
+      <div className="container">
+        <h2 className={styles["beyond-dev__title"]}>Beyond the developer</h2>
+        <div className={styles["beyond-dev__content"]}>
+          <p className={`${styles["beyond-dev__text"]} doubleLineBreak`}>
             When I&apos;m not writing code or fixing bugs, normally I will be living
             the life of a musician or a geek/nerd.<br/>
 
@@ -38,8 +30,8 @@ const BeyondDev:React.FC = () => {
 
             Also I have a Instagram page called {tsouLink} where I share 3D prints
             and RPG miniature paintings that I do.
-          </BeyondDevParagraph>
-          <BeyondDevImageHolder>
+          </p>
+          <div className={styles["beyond-dev__image-holder"]}>
             <Image
               src='/images/profile-photo.png'
               fill
@@ -49,14 +41,14 @@ const BeyondDev:React.FC = () => {
               loading='lazy'
               alt="A picture of Tiago Schmidt playing bass"
             />
-          </BeyondDevImageHolder>
-        </BeyondDevContent>
+          </div>
+        </div>
         <SocialBar />
-        <BeyondDevFooterNote>
-          Proudly built using React, Typescript, NextJS and Styled Components.
-        </BeyondDevFooterNote>
-      </Container>
-    </BeyondDevWrapper>
+        <p className={styles["beyond-dev__foot-note"]}>
+          Proudly built using React, Typescript, NextJS and SASS Modules.
+        </p>
+      </div>
+    </section>
   )
 }
 

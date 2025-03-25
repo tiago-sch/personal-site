@@ -1,0 +1,104 @@
+@use "sass:map";
+@use "sass:string";
+
+// Breakpoints
+
+$breakpoints: (
+  sm: 420,
+  md: 768,
+  lg: 992,
+  xl: 1200,
+  wd: 1440
+);
+
+@function get-breakpoint($name) {
+  $min: map.get($breakpoints, $name);
+  @return if($min != 0, $min, null);
+}
+
+@mixin breakpoint($nameMin, $nameMax:"") {
+  $min: get-breakpoint($nameMin);
+  $maxRaw: get-breakpoint($nameMax);
+  $max: $maxRaw - 1;
+  
+  @if $min and $maxRaw {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// Typography
+
+$typographies: (
+  title1: (
+    xs: 40px,
+    md: 48px,
+    lg: 64px
+  ),
+  title2: (
+    xs: 32px,
+    md: 40px,
+    lg: 48px
+  ),
+  title3: (
+    xs: 18px,
+    md: 20px,
+    lg: 28px,
+  ),
+  body: (
+    xs: 16px,
+    md: 18px
+  )
+);
+
+@mixin typography($type) {
+  $typoList: map.get($typographies, $type);
+  $typoXs: map.get($typoList, xs);
+  $typoSm: map.get($typoList, sm);
+  $typoMd: map.get($typoList, md);
+  $typoLg: map.get($typoList, lg);
+  $typoWd: map.get($typoList, wd);
+
+  font-size: $typoXs;
+
+  @if ($typoSm) {
+    @include breakpoint(sm) {
+      font-size: $typoSm;
+    }
+  }
+
+  @if ($typoMd) {
+    @include breakpoint(md) {
+      font-size: $typoMd;
+    }
+  }
+
+  @if ($typoLg) {
+    @include breakpoint(lg) {
+      font-size: $typoLg;
+    }
+  }
+
+  @if ($typoWd) {
+    @include breakpoint(wd) {
+      font-size: $typoWd;
+    }
+  }
+}
+
+// Double Line BR
+
+@mixin doubleLineBreak {
+  br {
+    content: '';
+    display: block;
+    margin-bottom: 1em;
+  }
+}
