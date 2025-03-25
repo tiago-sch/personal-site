@@ -4,11 +4,11 @@
 // Breakpoints
 
 $breakpoints: (
-  sm: 420,
-  md: 768,
-  lg: 992,
-  xl: 1200,
-  wd: 1440
+  sm: 420px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  wd: 1440px
 );
 
 @function get-breakpoint($name) {

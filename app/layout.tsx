@@ -1,4 +1,4 @@
-import "../styles/globalStyles.scss";
+import "../src/styles/globalStyles.scss";
 
 const RootLayout = ({
   children

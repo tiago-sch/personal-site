@@ -1,10 +1,10 @@
 import { type Metadata } from 'next'
 import type { Viewport } from 'next'
 
-import IntroBanner from '../components/IntroBanner'
-import TechTalk from '../components/TechTalk'
-import PastProjects from '../components/PastProjects'
-import BeyondDev from '../components/BeyondDev'
+import IntroBanner from '../src/components/IntroBanner'
+import TechTalk from '../src/components/TechTalk'
+import PastProjects from '../src/components/PastProjects'
+import BeyondDev from '../src/components/BeyondDev'
 
 const LDJson = {
   "@context": "https://schema.org",

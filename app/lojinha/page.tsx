@@ -1,4 +1,4 @@
-import StoreList from "../../components/Store/List";
+import StoreList from "../../src/components/Store/List";
 
 const Store = async () => {
   const fetched = await fetch(process.env.NEXT_APP_LOJINHA_URL, { next: { revalidate: 3600 } });
