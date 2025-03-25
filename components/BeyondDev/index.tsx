@@ -45,7 +45,7 @@ const BeyondDev:React.FC = () => {
         </div>
         <SocialBar />
         <p className={styles["beyond-dev__foot-note"]}>
-          Proudly built using React, Typescript, NextJS and Styled Components.
+          Proudly built using React, Typescript, NextJS and SASS Modules.
         </p>
       </div>
     </section>

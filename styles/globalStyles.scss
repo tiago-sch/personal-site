@@ -121,38 +121,35 @@ h1 {
   font-weight: bold;
   font-family: 'Rubik', sans-serif;
   color: var(--lightGray);
-  text-align: 'left';
-  text-align: center;
+  text-align: left;
   margin-bottom: 24px;
   @include mixins.typography('title1');
 }
 
 .h2 {
   color: var(--lightGray);
-  text-align: 'left';
-  text-align: center;
+  text-align: left;
   margin-bottom: 16px;
   @include mixins.typography('title3');
 };
 
 .h3 {
   color: var(--lightGray);
-  text-align: 'left';
-  text-align: center;
+  text-align: left;
   margin-bottom: 8px;
   @include mixins.typography('title3');
 };
 
 .text-left {
-  text-align: 'left';
+  text-align: left;
 }
 
 .text-center {
-  text-align: 'center';
+  text-align: center;
 }
 
 .text-right {
-  text-align: 'right';
+  text-align: right;
 }
 
 .button {
