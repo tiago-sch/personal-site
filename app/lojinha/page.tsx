@@ -1,4 +1,10 @@
+import { type Metadata } from 'next'
 import StoreList from "../../src/components/Store/List";
+
+export const metadata: Metadata = {
+  title: "Lojinha do Tiago",
+  description: "Interessou? Entra em contato pelo zap ou insta"
+}
 
 const Store = async () => {
   const fetched = await fetch(process.env.NEXT_APP_LOJINHA_URL, { next: { revalidate: 3600 } });

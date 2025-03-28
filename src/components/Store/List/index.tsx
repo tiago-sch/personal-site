@@ -9,7 +9,7 @@ const StoreList = ({ items }) => {
       {items.map(item => (
         <li key={`item-${item.slug}`} className={styles["store-list__item"]}>
           <div className={styles["store-list__pic-holder"]}>
-            <Image src={item.pic} alt={item.name} fill className={styles["store-list__pic"]} />
+            <Image src={item.pic} alt={item.name} fill className={styles["store-list__pic"]} sizes="60vw"/>
           </div>
           <h2 className={styles["store-list__item-name"]}>
             {item.name}

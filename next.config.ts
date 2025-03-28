@@ -76,13 +76,12 @@ const config: NextConfig = {
     implementation: 'sass-embedded',
   },
   images: {
-    remotePatterns: [{
-      protocol: 'https',
-      hostname: 'lh3.googleusercontent.com',
-      port: '',
-      pathname: '/**',
-      search: '',
-    }]
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+      },
+    ]
   },
 }
 
