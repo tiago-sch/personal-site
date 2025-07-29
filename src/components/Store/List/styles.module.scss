@@ -21,6 +21,23 @@
     padding: 12px;
     background-color: var(--fandangoPink);
     border-radius: 8px;
+    position: relative;
+  }
+
+  &__sold-sign {
+    background-color: #d55d92a3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 40px;
   }
 
   &__pic-holder { 

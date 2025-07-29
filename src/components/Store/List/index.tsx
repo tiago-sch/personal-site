@@ -8,6 +8,7 @@ const StoreList = ({ items }) => {
     <ul className={styles["store-list"]}>
       {items.map(item => (
         <li key={`item-${item.slug}`} className={styles["store-list__item"]}>
+          {item.sold && (<span className={styles["store-list__sold-sign"]}>Vendido</span>)}
           <div className={styles["store-list__pic-holder"]}>
             <Image src={item.pic} alt={item.name} fill className={styles["store-list__pic"]} sizes="60vw"/>
           </div>
