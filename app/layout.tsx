@@ -1,4 +1,5 @@
 import "../src/styles/globalStyles.scss";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const RootLayout = ({
   children
@@ -17,6 +18,7 @@ const RootLayout = ({
       <body>
         { children }
       </body>
+      <GoogleAnalytics gaId="G-1FCZ37HSY5" />
     </html>
   )
 }
