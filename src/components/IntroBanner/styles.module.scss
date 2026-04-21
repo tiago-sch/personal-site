@@ -1,150 +1,104 @@
 @use "../../styles/mixins";
 
 .banner {
-  background-image: radial-gradient(
-    ellipse at top left,
-    var(--section-hero-start),
-    var(--section-hero-end)
-  );
-  padding-top: 100px; // offset for sticky header
-  padding-bottom: 60px;
-  border-bottom: 1px solid var(--card-border);
-
-  @include mixins.breakpoint(md) {
-    padding-top: 120px;
-    padding-bottom: 80px;
-  }
-
-  @include mixins.breakpoint(lg) {
-    padding-top: 140px;
-    padding-bottom: 100px;
-  }
+  box-shadow: 0 0 15px var(--purple2);
+  border-bottom: 2px solid var(--violetRyb);
+  background-image:
+    radial-gradient(
+      circle at bottom center,
+      var(--purpureus),
+      var(--blueVioletColorWheel2)
+    ),
+    repeating-radial-gradient(
+      circle at center center,
+      var(--purpureus),
+      var(--purpureus),
+      10px,
+      transparent 20px,
+      transparent 10px
+    );
 
   &__container {
     display: flex;
-    flex-direction: column-reverse;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
-    gap: 40px;
+    min-height: 80vh;
+
+    @supports (-webkit-touch-callout: none) {
+      min-height: -webkit-fill-available;
+    }
 
     @include mixins.breakpoint(md) {
       flex-direction: row;
-      align-items: center;
+      justify-content: space-between;
+      min-height: 450px;
+    }
+
+    @include mixins.breakpoint(lg) {
+      min-height: 650px;
     }
   }
 
-  &__content {
-    flex: 1;
+  &__holder { 
+    flex-basis: 100%;
+
+    @include mixins.breakpoint(md) {
+      flex-basis: 50%;
+    }
+
+    @include mixins.breakpoint(lg) {
+      flex-basis: 60%;
+    }
+
+    @include mixins.breakpoint(xl) {
+      flex-basis: 50%;
+    }
+
+    @include mixins.breakpoint(wd) {
+      flex-basis: 60%;
+    }
+  }
+
+  &__title {
     text-align: center;
-    animation: fadeInUp 0.7s ease both;
+    text-shadow: 5px 5px 10px var(--blueVioletColorWheel2);
+    margin-bottom: 16px;
+
+    @include mixins.breakpoint(md) {
+      margin-bottom: 0;
+      text-align: left;
+    }
+  }
+
+  &__subtitle {
+    text-align: center;
+    text-shadow: 5px 5px 10px var(--blueVioletColorWheel2);
+    @include mixins.typography($type: 'title3');
 
     @include mixins.breakpoint(md) {
       text-align: left;
     }
   }
 
-  &__pretitle {
-    font-family: var(--font-body);
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--ai-accent);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-    animation: fadeInUp 0.6s ease 0.1s both;
-  }
-
-  &__title {
-    font-family: var(--font-heading) !important;
-    font-weight: 800;
-    color: #ffffff;
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-    line-height: 1.1;
-    margin-bottom: 4px;
-    animation: fadeInUp 0.6s ease 0.2s both;
-    @include mixins.typography('title1');
-  }
-
-  &__role {
-    font-family: var(--font-heading);
-    font-size: 22px;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.75);
-    margin-bottom: 20px;
-    animation: fadeInUp 0.6s ease 0.3s both;
-
-    @include mixins.breakpoint(md) {
-      font-size: 26px;
-    }
-  }
-
-  &__tagline {
-    font-size: 18px;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 16px;
-    line-height: 1.5;
-    animation: fadeInUp 0.6s ease 0.4s both;
-
-    @include mixins.breakpoint(md) {
-      font-size: 20px;
-    }
-  }
-
-  &__description {
-    font-size: 15px;
-    color: rgba(255, 255, 255, 0.7);
-    line-height: 1.7;
-    margin-bottom: 32px;
-    animation: fadeInUp 0.6s ease 0.5s both;
-
-    @include mixins.breakpoint(md) {
-      font-size: 16px;
-      max-width: 520px;
-    }
-  }
-
-  &__ctas {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    justify-content: center;
-    animation: fadeInUp 0.6s ease 0.6s both;
-
-    @include mixins.breakpoint(md) {
-      justify-content: flex-start;
-    }
-  }
-
   &__image-holder {
+    width: 250px;
+    height: 250px;
     position: relative;
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
-    flex-shrink: 0;
-    animation: fadeInUp 0.7s ease 0.3s both;
-
+    
     @include mixins.breakpoint(sm) {
-      width: 260px;
-      height: 260px;
+      width: 300px;
+      height: 300px;
     }
 
     @include mixins.breakpoint(md) {
-      width: 320px;
-      height: 320px;
-    }
-
-    @include mixins.breakpoint(lg) {
-      width: 380px;
-      height: 380px;
+      width: 350px;
+      height: 350px;
     }
   }
 
   &__image {
-    object-fit: cover;
-    object-position: center top;
+    height: auto;
+    object-fit: contain;
   }
 }
