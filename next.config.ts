@@ -75,10 +75,14 @@ const config: NextConfig = {
   },
   images: {
     remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'lh3.googleusercontent.com',
-      },
+      { protocol: 'https', hostname: 'lh3.googleusercontent.com' },
+      { protocol: 'https', hostname: 'assets.fanatec.com' },
+      { protocol: 'https', hostname: 'd1nzm2nlurbj16.cloudfront.net' },
+      { protocol: 'https', hostname: 'extremesimracing.com' },
+      { protocol: 'https', hostname: 'dlcdnwebimgs.asus.com' },
+      { protocol: 'https', hostname: 'media.us.lg.com' },
+      { protocol: 'https', hostname: 'simracing-pc.de' },
+      { protocol: 'https', hostname: 'res.cloudinary.com' },
     ]
   },
 }
