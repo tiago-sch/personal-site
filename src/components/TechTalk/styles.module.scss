@@ -1,77 +1,174 @@
 @use "../../styles/mixins";
 
 .tech-talk {
-  padding-top: 48px;
-  padding-bottom: 48px;
+  background-color: var(--bg-primary);
+  padding: 80px 0;
+  transition: background-color 0.3s ease;
 
-  @include mixins.breakpoint(md) {
-    padding-top: 80px;
-    padding-bottom: 80px;
+  &__heading {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 48px;
+    @include mixins.typography('title2');
   }
 
-  &__header { 
+  &__subsection {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 24px;
+    transition: background-color 0.3s ease;
+
+    &--ai {
+      border-color: var(--ai-accent);
+      border-width: 2px;
+      background-color: var(--ai-accent-light);
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__subsection-header {
+    margin-bottom: 24px;
     display: flex;
     flex-direction: column;
+    gap: 6px;
 
     @include mixins.breakpoint(md) {
       flex-direction: row;
-      justify-content: space-between;
       align-items: center;
+      gap: 16px;
     }
   }
 
-  &__header-content {
-    object-fit: contain;
-    flex-basis: 100%;
+  &__ai-label {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ai-accent-dark);
+    background-color: var(--ai-accent-light);
+    border: 1.5px solid var(--ai-accent);
+    border-radius: 20px;
+    padding: 4px 14px;
+    white-space: nowrap;
+  }
 
-    @include mixins.breakpoint(md) {
-      flex-basis: 60%;
+  &__ai-tagline {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  &__web-label {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    background-color: var(--badge-expert-bg);
+    border: 1.5px solid var(--badge-expert-bg);
+    border-radius: 20px;
+    padding: 4px 14px;
+    white-space: nowrap;
+  }
+
+  &__context {
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    border-top: 1px solid var(--card-border);
+    padding-top: 16px;
+
+    a {
+      color: var(--link-color);
+    }
+  }
+}
+
+// Badge groups
+
+.badge-group {
+  margin-bottom: 16px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  &__label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    padding: 2px 10px;
+    border-radius: 4px;
+
+    &--expert {
+      color: #ffffff;
+      background-color: var(--badge-expert-bg);
+    }
+
+    &--proficient {
+      color: var(--badge-proficient-text);
+      border: 1px solid var(--badge-proficient-border);
+    }
+
+    &--familiar {
+      color: var(--badge-familiar-text);
+      border: 1px solid var(--badge-familiar-border);
     }
   }
 
-  &__title {
-    text-align: center;
-    margin-bottom: 8px;
-    font-weight: bold;
-    @include mixins.typography('title2');
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
 
-    @include mixins.breakpoint(md) {
-      text-align: left;
-      margin-bottom: 32px;
-    }
+// Badges
+
+.badge {
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   }
 
-  &__text {
-    @include mixins.typography('body');
-    @include mixins.doubleLineBreak;;
-
-    &+& {
-      margin-top: 8px;
-    }
-    
-    &--compact {
-      @include mixins.breakpoint(md) {
-        text-align: center;
-      }
-      @include mixins.breakpoint(lg) {
-        max-width: 70%;
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
+  &--expert {
+    background-color: var(--badge-expert-bg);
+    color: var(--badge-expert-text);
+    border: 1.5px solid var(--badge-expert-bg);
   }
 
-  &__image-holder {
-    width: 250px;
-    height: calc(.75 * 250px);
-    max-width: 100%;
-    position: relative;
-    margin: auto auto 16px;
-    
-    @include mixins.breakpoint(md) {
-      margin-bottom: 0;
-      width: 350px;
-      height: calc(.75 * 350px);
-    }
+  &--proficient {
+    background-color: var(--badge-proficient-bg);
+    color: var(--badge-proficient-text);
+    border: 1.5px solid var(--badge-proficient-border);
+  }
+
+  &--familiar {
+    background-color: var(--badge-familiar-bg);
+    color: var(--badge-familiar-text);
+    border: 1.5px solid var(--badge-familiar-border);
+    opacity: 0.8;
   }
 }

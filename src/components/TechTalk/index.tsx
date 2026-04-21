@@ -1,90 +1,116 @@
-import Image from 'next/image'
-import ListWithIcons from '../ListWithIcons'
 import ExternalLink from '../ExternalLink'
-import styles from "./styles.module.scss";
+import styles from './styles.module.scss'
 
-const languages = {
-  title: 'Languages',
-  items: [
-    { name: 'HTML 5', icon: 'tech/html5.png' },
-    { name: 'CSS 3', icon: 'tech/css3.png' },
-    { name: 'SASS/SCSS', icon: 'tech/sass.png' },
-    { name: 'JavaScript ES6 ', icon: 'tech/javascript.png' },
-    { name: 'TypeScript', icon: 'tech/typescript.png' },
-    { name: 'Python', icon: 'tech/python.png' },
-    { name: 'PHP', icon: 'tech/php.png' },
-    { name: 'SQL', icon: 'tech/sql.png' }
-  ]
-}
+// ── AI & LLM skills ─────────────────────────────────────────────────────────
 
-const frameworks = {
-  title: 'Frameworks  & Tools',
-  items: [
-    { name: 'React', icon: 'tech/react.png' },
-    { name: 'Node', icon: 'tech/node.png' },
-    { name: 'Jest', icon: 'tech/jest.png' },
-    { name: 'Next JS', icon: 'tech/next.png' },
-    { name: 'Webpack', icon: 'tech/webpack.png' },
-    { name: 'Tailwind', icon: 'tech/tailwind.png' },
-    { name: 'Laravel', icon: 'tech/laravel.png' },
-    { name: 'Django', icon: 'tech/django.png' }
-  ]
-}
+const aiExpert = [
+  'Claude API (Anthropic)',
+  'Prompt Engineering',
+  'AI-assisted development (Claude Code, Cursor, Copilot)',
+]
 
-const stackoverflowDevSurveyLink = 'https://www.freecodecamp.org/news/stack-overflow-developer-survey-2020-programming-language-framework-salary-data/'
+const aiProficient = [
+  'OpenAI API',
+  'Retrieval-Augmented Generation (RAG)',
+  'LLM tool use / function calling',
+  'Streaming responses',
+  'AI SDK (Vercel)',
+]
+
+const aiFamiliar = [
+  'LangChain',
+  'Embeddings & vector stores',
+  'Fine-tuning concepts',
+  'MCP (Model Context Protocol)',
+]
+
+// ── Web & Frontend skills ────────────────────────────────────────────────────
+
+const webExpert = [
+  'HTML5', 'CSS3', 'SASS/SCSS', 'JavaScript ES6',
+  'TypeScript', 'React', 'Next.js', 'Tailwind',
+]
+
+const webProficient = ['Node.js', 'Webpack', 'Jest', 'Python']
+
+const webFamiliar = ['PHP', 'SQL', 'Laravel', 'Django']
+
+// ── Links ───────────────────────────────────────────────────────────────────
+
 const getBEMLink = 'http://getbem.com/introduction/'
-const functionlStylingLink = 'https://rangle.io/blog/styling-with-functional-css/'
+const functionalStylingLink = 'https://rangle.io/blog/styling-with-functional-css/'
+
+// ── Sub-components ───────────────────────────────────────────────────────────
+
+interface BadgeGroupProps {
+  label: string
+  tier: 'expert' | 'proficient' | 'familiar'
+  items: string[]
+}
+
+const BadgeGroup: React.FC<BadgeGroupProps> = ({ label, tier, items }) => (
+  <div className={styles['badge-group']}>
+    <span className={`${styles['badge-group__label']} ${styles[`badge-group__label--${tier}`]}`}>
+      {label}
+    </span>
+    <ul className={styles['badge-group__list']}>
+      {items.map(item => (
+        <li key={item} className={`${styles.badge} ${styles[`badge--${tier}`]}`}>
+          {item}
+        </li>
+      ))}
+    </ul>
+  </div>
+)
+
+// ── Component ────────────────────────────────────────────────────────────────
 
 const TechTalk: React.FC = () => {
   return (
-    <section className={`container ${styles["tech-talk"]}`}>
+    <section id="skills" className={styles['tech-talk']} data-animate>
+      <div className="container">
 
-      <div className={styles["tech-talk__header"]}>
-        <div className={styles["tech-talk__image-holder"]}>
-          <Image
-            src="/images/mirage-start-up-launch.png"
-            alt="Illustration of a computer with a hourglass in the screen, the World Wide Web icon in the background and a rocket flying with a speech bubble"
-            fill
-          />
+        <h2 className={styles['tech-talk__heading']}>Tech Talk</h2>
+
+        {/* AI & LLM subsection */}
+        <div className={styles['tech-talk__subsection'] + ' ' + styles['tech-talk__subsection--ai']}>
+          <div className={styles['tech-talk__subsection-header']}>
+            <span className={styles['tech-talk__ai-label']}>AI &amp; LLM Tools</span>
+            <p className={styles['tech-talk__ai-tagline']}>
+              Current differentiator — AI-powered development &amp; integration
+            </p>
+          </div>
+
+          <BadgeGroup label="Expert" tier="expert" items={aiExpert} />
+          <BadgeGroup label="Proficient" tier="proficient" items={aiProficient} />
+          <BadgeGroup label="Familiar" tier="familiar" items={aiFamiliar} />
+
+          <p className={styles['tech-talk__context']}>
+            I integrate AI features into production web apps — from streaming chat interfaces and
+            tool-calling agents to RAG pipelines and AI-assisted developer workflows.
+          </p>
         </div>
 
-        <div className={styles["tech-talk__header-content"]}>
-          <h2 className={styles["tech-talk__title"]}>Tech talk</h2>
-          <p className={styles["tech-talk__text"]}>
-            Over the years I had the pleasure to work in a wide range of projects,
-            from static landing pages to complex web applications. It allowed me
-            to work in a wide variety of teams, technologies, frameworks and cultures.
-          </p>
-          <p className={styles["tech-talk__text"]}>
-            This is a sample of programming languages and frameworks I have experience with:
+        {/* Web & Frontend subsection */}
+        <div className={styles['tech-talk__subsection']}>
+          <div className={styles['tech-talk__subsection-header']}>
+            <span className={styles['tech-talk__web-label']}>Web &amp; Frontend</span>
+          </div>
+
+          <BadgeGroup label="Expert" tier="expert" items={webExpert} />
+          <BadgeGroup label="Proficient" tier="proficient" items={webProficient} />
+          <BadgeGroup label="Familiar" tier="familiar" items={webFamiliar} />
+
+          <p className={styles['tech-talk__context']}>
+            I prioritize styling architecture, semantic markup, and mobile-first responsive design
+            using{' '}<ExternalLink href={getBEMLink}>BEM</ExternalLink> and{' '}
+            <ExternalLink href={functionalStylingLink}>functional CSS</ExternalLink> methodologies.
           </p>
         </div>
+
       </div>
-
-      <ListWithIcons {...languages} />
-      <ListWithIcons {...frameworks} />
-
-      <div>
-        <p className={`${styles["tech-talk__text"]} ${styles["tech-talk__text--compact"]}`}>
-          We all know that today the one of the most commonly used
-          programming language is{' '}
-          <ExternalLink href={stackoverflowDevSurveyLink}>
-            JavaScript
-          </ExternalLink>{' '}
-          but in my opinion a good styling architecture is also crucial
-          for a good user experience and overall performance.
-
-          <br/>
-
-          With that in mind I always prefer using a responsive mobile-first approach
-          for styling using <ExternalLink href={getBEMLink}>BEM</ExternalLink>{' '}
-          and <ExternalLink href={functionlStylingLink}>functional styling</ExternalLink>{' '}
-          methodologies and frameworks like CSS Modules or Styled Components.
-        </p>
-      </div>
-
     </section>
   )
-};
+}
 
 export default TechTalk
