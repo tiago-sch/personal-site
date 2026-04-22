@@ -10,8 +10,8 @@ interface Project {
   techStack: string[]
   aiPowered: boolean
   thumbnail: string
-  liveUrl: string
-  caseStudyUrl?: string
+  liveUrl?: string
+  githubUrl?: string
 }
 
 const projects: Project[] = [
@@ -23,48 +23,44 @@ const projects: Project[] = [
     techStack: ['React', 'TypeScript', 'SASS', 'Node.js'],
     aiPowered: false,
     thumbnail: '/images/portfolio/alamo.jpg',
-    liveUrl: 'https://www.alamo.com/en/home.html',
   },
   {
-    title: 'Baker Hughes',
-    role: 'UI Developer', // TODO: replace with actual role
-    problem: 'Build scalable UI components for a complex industrial data platform.', // TODO: replace
-    outcome: 'Shipped a component library used across multiple internal enterprise applications.', // TODO: replace
-    techStack: ['React', 'TypeScript', 'Styled Components', 'Jest'],
-    aiPowered: false,
-    thumbnail: '/images/portfolio/baker-hughes.jpg',
-    liveUrl: 'https://www.bakerhughes.com/',
+    title: 'Lupah',
+    role: 'Frontend Developer',
+    problem: 'Build a modern real estate platform connecting people and businesses to extraordinary properties.',
+    outcome: 'Delivered a clean, conversion-focused property listing experience.',
+    techStack: ['React', 'Next.js', 'TypeScript', 'Tailwind'],
+    aiPowered: true,
+    thumbnail: '/images/portfolio/lupah.jpg',
   },
   {
     title: 'Muambator',
     role: 'Frontend Lead', // TODO: replace with actual role
     problem: 'Help Brazilian shoppers track international purchases in real time.', // TODO: replace
     outcome: 'Rebuilt the tracking interface with a faster, mobile-first experience.', // TODO: replace
-    techStack: ['React', 'Next.js', 'SASS', 'JavaScript'],
+    techStack: ['Django', 'Python', 'SASS', 'Bootstrap'],
     aiPowered: false,
     thumbnail: '/images/portfolio/muambator.jpg',
-    liveUrl: 'https://www.muambator.com.br/',
   },
   {
     title: 'Perestroika',
     role: 'Frontend Developer', // TODO: replace with actual role
     problem: 'Create an engaging online platform for a leading Brazilian creative school.', // TODO: replace
     outcome: 'Launched a performant, visually rich course catalogue site.', // TODO: replace
-    techStack: ['React', 'TypeScript', 'SASS', 'Next.js'],
+    techStack: ['Django', 'Python', 'SASS', 'Bootstrap'],
     aiPowered: false,
     thumbnail: '/images/portfolio/perestroika.jpg',
-    liveUrl: 'https://www.perestroika.com.br/',
   },
-  // TODO: add AI project
   {
-    title: 'AI Feature / Experiment',
+    title: 'Movie Matcher',
     role: 'Solo Developer',
-    problem: '// TODO',
-    outcome: '// TODO',
-    techStack: ['Claude API', 'Next.js', 'TypeScript'],
+    problem: 'Help friends agree on what to watch by matching movie preferences across multiple people.',
+    outcome: 'Shipped a fun, real-time movie recommendation app powered by the Gemini API.',
+    techStack: ['React', 'TypeScript', 'Vite', 'Tailwind', 'Gemini'],
     aiPowered: true,
-    thumbnail: '/images/mirage-pale.png',
-    liveUrl: '#', // TODO: replace with real URL
+    thumbnail: '/images/portfolio/movie-matcher.jpg',
+    liveUrl: 'https://movie-matcher.tiagoschmidt.com/',
+    githubUrl: 'https://github.com/tiago-sch/movie-matcher',
   },
 ]
 
@@ -73,7 +69,7 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
-  const { title, role, problem, outcome, techStack, aiPowered, thumbnail, liveUrl, caseStudyUrl } = project
+  const { title, role, problem, outcome, techStack, aiPowered, thumbnail, liveUrl, githubUrl } = project
 
   return (
     <li className={styles.card}>
@@ -111,16 +107,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           ))}
         </div>
 
-        <div className={styles.card__links}>
-          <ExternalLink href={liveUrl} className={styles['card__link']}>
-            View Live ↗
-          </ExternalLink>
-          {caseStudyUrl && (
-            <ExternalLink href={caseStudyUrl} className={`${styles['card__link']} ${styles['card__link--secondary']}`}>
-              Case Study
-            </ExternalLink>
-          )}
-        </div>
+        {(liveUrl || githubUrl) && (
+          <div className={styles.card__links}>
+            {liveUrl && (
+              <ExternalLink href={liveUrl} className={styles['card__link']}>
+                View Live ↗
+              </ExternalLink>
+            )}
+            {githubUrl && (
+              <ExternalLink href={githubUrl} className={`${styles['card__link']} ${styles['card__link--secondary']}`}>
+                GitHub ↗
+              </ExternalLink>
+            )}
+          </div>
+        )}
       </div>
     </li>
   )

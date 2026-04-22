@@ -12,26 +12,13 @@ const navLinks = [
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
-  const [isDark, setIsDark] = useState(true)
   const [menuOpen, setMenuOpen] = useState(false)
-
-  useEffect(() => {
-    const saved = localStorage.getItem('theme') || 'dark'
-    setIsDark(saved === 'dark')
-  }, [])
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60)
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
-
-  const toggleTheme = () => {
-    const newTheme = isDark ? 'light' : 'dark'
-    setIsDark(!isDark)
-    document.documentElement.setAttribute('data-theme', newTheme)
-    localStorage.setItem('theme', newTheme)
-  }
 
   const closeMenu = () => setMenuOpen(false)
 
@@ -56,14 +43,6 @@ export default function Header() {
         </nav>
 
         <div className={styles.header__actions}>
-          <button
-            onClick={toggleTheme}
-            className={styles.header__toggle}
-            aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-          >
-            {isDark ? '☀' : '☾'}
-          </button>
-
           <button
             className={`${styles.header__burger} ${menuOpen ? styles['header__burger--open'] : ''}`}
             onClick={() => setMenuOpen(!menuOpen)}

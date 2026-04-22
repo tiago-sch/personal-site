@@ -6,15 +6,8 @@ const RootLayout = ({
   children: React.ReactNode
 }) => {
   return (
-    <html lang="en-US" suppressHydrationWarning>
+    <html lang="en-US">
       <head>
-        {/* Dark mode: run before render to prevent flash */}
-        <script dangerouslySetInnerHTML={{ __html: `
-          try {
-            var t = localStorage.getItem('theme') || 'dark';
-            document.documentElement.setAttribute('data-theme', t);
-          } catch(e) {}
-        `}} />
 
         {/* Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />

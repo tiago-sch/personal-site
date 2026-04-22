@@ -14,7 +14,7 @@ const IntroBanner: React.FC = () => {
             I build fast, accessible web products with React, TypeScript, and AI.
           </p>
           <p className={styles.banner__description}>
-            With 5+ years of experience across enterprise clients and startups, I specialize in
+            With 9+ years of experience across enterprise clients and startups, I specialize in
             scalable component architecture, mobile-first interfaces, and AI-powered features.
             I care deeply about performance, accessibility, and the details that make products feel polished.
           </p>
@@ -30,6 +30,7 @@ const IntroBanner: React.FC = () => {
             alt="Tiago Schmidt — Frontend Engineer"
             fill
             priority
+            sizes="(max-width: 768px) 100vw, 50vw"
             className={styles.banner__image}
           />
         </div>
