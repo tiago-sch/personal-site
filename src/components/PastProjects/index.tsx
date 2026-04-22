@@ -10,6 +10,7 @@ interface Project {
   techStack: string[]
   aiPowered: boolean
   thumbnail: string
+  comingSoon?: boolean
   liveUrl?: string
   githubUrl?: string
 }
@@ -62,6 +63,16 @@ const projects: Project[] = [
     liveUrl: 'https://movie-matcher.tiagoschmidt.com/',
     githubUrl: 'https://github.com/tiago-sch/movie-matcher',
   },
+  {
+    title: 'RPG Session Teller',
+    role: 'Solo Developer',
+    problem: 'Turn messy bullet-point notes from tabletop RPG sessions into immersive, fantasy-style narrative text.',
+    outcome: 'In development — an AI-powered storytelling tool for tabletop RPG players.',
+    techStack: ['React', 'Vite', 'Tailwind', 'Gemini'],
+    aiPowered: true,
+    comingSoon: true,
+    thumbnail: '/images/mirage-pale.png',
+  },
 ]
 
 interface ProjectCardProps {
@@ -69,7 +80,7 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
-  const { title, role, problem, outcome, techStack, aiPowered, thumbnail, liveUrl, githubUrl } = project
+  const { title, role, problem, outcome, techStack, aiPowered, thumbnail, comingSoon, liveUrl, githubUrl } = project
 
   return (
     <li className={styles.card}>
@@ -82,6 +93,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           className={styles['card__thumb-img']}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
         />
+        {comingSoon && (
+          <span className={styles['card__wip-badge']}>In Development</span>
+        )}
         {aiPowered && (
           <span className={styles['card__ai-badge']}>AI-powered</span>
         )}
