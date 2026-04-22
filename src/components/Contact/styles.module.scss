@@ -1,0 +1,35 @@
+@use "../../styles/mixins";
+
+.contact {
+  background-color: var(--bg-secondary);
+  padding: 80px 0;
+  transition: background-color 0.3s ease;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  &__heading {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--text-primary);
+    @include mixins.typography('title2');
+  }
+
+  &__sub {
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.7;
+    margin-top: -16px;
+
+    @include mixins.breakpoint(md) {
+      font-size: 17px;
+    }
+  }
+}
