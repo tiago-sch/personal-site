@@ -1,62 +1,158 @@
-import { useMemo } from 'react';
-import styles from './styles.module.scss';
-import Image from 'next/image';
-import ExternalLink from '../ExternalLink';
+import Image from 'next/image'
+import ExternalLink from '../ExternalLink'
+import styles from './styles.module.scss'
 
-const imageFolder = '/images/portfolio/'
-const projects = [
+interface Project {
+  title: string
+  role: string
+  problem: string
+  outcome: string
+  techStack: string[]
+  aiPowered: boolean
+  thumbnail: string
+  comingSoon?: boolean
+  liveUrl?: string
+  githubUrl?: string
+}
+
+const projects: Project[] = [
   {
-    image: `${imageFolder}alamo.jpg`,
-    name: 'Alamo Rent a Car',
-    link: 'https://www.alamo.com/en/home.html'
+    title: 'Alamo Rent a Car',
+    role: 'Frontend Developer', // TODO: replace with actual role
+    problem: 'Modernise the customer-facing booking flow to increase conversion across devices.', // TODO: replace
+    outcome: 'Delivered a responsive, accessible booking experience used by millions of customers globally.', // TODO: replace
+    techStack: ['React', 'TypeScript', 'SASS', 'Node.js'],
+    aiPowered: false,
+    thumbnail: '/images/portfolio/alamo.jpg',
   },
   {
-    image: `${imageFolder}baker-hughes.jpg`,
-    name: 'Baker Hughes',
-    link: 'https://www.bakerhughes.com/'
+    title: 'Lupah',
+    role: 'Frontend Developer',
+    problem: 'Build a modern real estate platform connecting people and businesses to extraordinary properties.',
+    outcome: 'Delivered a clean, conversion-focused property listing experience.',
+    techStack: ['React', 'Next.js', 'TypeScript', 'Tailwind'],
+    aiPowered: true,
+    thumbnail: '/images/portfolio/lupah.jpg',
   },
   {
-    image: `${imageFolder}muambator.jpg`,
-    name: 'Muambator',
-    link: 'https://www.muambator.com.br/'
+    title: 'Muambator',
+    role: 'Frontend Lead', // TODO: replace with actual role
+    problem: 'Help Brazilian shoppers track international purchases in real time.', // TODO: replace
+    outcome: 'Rebuilt the tracking interface with a faster, mobile-first experience.', // TODO: replace
+    techStack: ['Django', 'Python', 'SASS', 'Bootstrap'],
+    aiPowered: false,
+    thumbnail: '/images/portfolio/muambator.jpg',
   },
   {
-    image: `${imageFolder}perestroika.jpg`,
-    name: 'Perestroika',
-    link: 'https://www.perestroika.com.br/'
-  }
+    title: 'Perestroika',
+    role: 'Frontend Developer', // TODO: replace with actual role
+    problem: 'Create an engaging online platform for a leading Brazilian creative school.', // TODO: replace
+    outcome: 'Launched a performant, visually rich course catalogue site.', // TODO: replace
+    techStack: ['Django', 'Python', 'SASS', 'Bootstrap'],
+    aiPowered: false,
+    thumbnail: '/images/portfolio/perestroika.jpg',
+  },
+  {
+    title: 'Movie Matcher',
+    role: 'Solo Developer',
+    problem: 'Help friends agree on what to watch by matching movie preferences across multiple people.',
+    outcome: 'Shipped a fun, real-time movie recommendation app powered by the Gemini API.',
+    techStack: ['React', 'TypeScript', 'Vite', 'Tailwind', 'Gemini'],
+    aiPowered: true,
+    thumbnail: '/images/portfolio/movie-matcher.jpg',
+    liveUrl: 'https://movie-matcher.tiagoschmidt.com/',
+    githubUrl: 'https://github.com/tiago-sch/movie-matcher',
+  },
+  {
+    title: 'RPG Session Teller',
+    role: 'Solo Developer',
+    problem: 'Turn messy bullet-point notes from tabletop RPG sessions into immersive, fantasy-style narrative text.',
+    outcome: 'In development — an AI-powered storytelling tool for tabletop RPG players.',
+    techStack: ['React', 'Vite', 'Tailwind', 'Gemini'],
+    aiPowered: true,
+    comingSoon: true,
+    thumbnail: '/images/mirage-pale.png',
+  },
 ]
 
-const PastProjects:React.FC = () => {
-  const memoizedMap = useMemo(() => {
-    return projects.map(({image, name, link}) => (
-      <li className={styles["projects__list-item"]} key={`past-project-${name}`}>
-        <Image
-          src={image}
-          alt={`Screenshot of ${name}'s website`}
-          width={252}
-          height={145.5}
-          loading='lazy'
-          className={styles["projects__image"]}
-        />
-        <ExternalLink className={styles["projects__item-project-name"]} href={link}>
-          {name}
-        </ExternalLink>
-      </li>
-    ))
-  }, []);
+interface ProjectCardProps {
+  project: Project
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+  const { title, role, problem, outcome, techStack, aiPowered, thumbnail, comingSoon, liveUrl, githubUrl } = project
 
   return (
-    <section className={styles["projects"]}>
-      <div className='container'>
-        <h2 className={styles["projects__title"]}>Past projects</h2>
-        <p className={styles["projects__text"]}>
-          These are some of the projects I had the pleasure to work
-          with in the past:
+    <li className={styles.card}>
+      <div className={styles.card__thumbnail}>
+        <Image
+          src={thumbnail}
+          alt={`Screenshot of ${title}`}
+          fill
+          loading="lazy"
+          className={styles['card__thumb-img']}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+        />
+        {comingSoon && (
+          <span className={styles['card__wip-badge']}>In Development</span>
+        )}
+        {aiPowered && (
+          <span className={styles['card__ai-badge']}>AI-powered</span>
+        )}
+        <div className={styles.card__overlay}>
+          <p className={styles['card__overlay-role']}>{role}</p>
+          <div className={styles['card__overlay-stack']}>
+            {techStack.map(t => (
+              <span key={t} className={styles['card__stack-tag']}>{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.card__body}>
+        <h3 className={styles.card__title}>{title}</h3>
+        <p className={styles.card__role}>{role}</p>
+        <p className={styles.card__problem}>{problem}</p>
+        <p className={styles.card__outcome}>{outcome}</p>
+
+        <div className={styles['card__stack']}>
+          {techStack.map(t => (
+            <span key={t} className={styles['card__stack-tag']}>{t}</span>
+          ))}
+        </div>
+
+        {(liveUrl || githubUrl) && (
+          <div className={styles.card__links}>
+            {liveUrl && (
+              <ExternalLink href={liveUrl} className={styles['card__link']}>
+                View Live ↗
+              </ExternalLink>
+            )}
+            {githubUrl && (
+              <ExternalLink href={githubUrl} className={`${styles['card__link']} ${styles['card__link--secondary']}`}>
+                GitHub ↗
+              </ExternalLink>
+            )}
+          </div>
+        )}
+      </div>
+    </li>
+  )
+}
+
+const PastProjects: React.FC = () => {
+  return (
+    <section id="projects" className={styles.projects} data-animate>
+      <div className="container">
+        <h2 className={styles.projects__title}>Past Projects</h2>
+        <p className={styles.projects__subtitle}>
+          A selection of clients and products I&apos;ve had the pleasure of working on:
         </p>
 
-        <ul className={styles["projects__list"]}>
-          {memoizedMap}
+        <ul className={styles.projects__list}>
+          {projects.map(project => (
+            <ProjectCard key={project.title} project={project} />
+          ))}
         </ul>
       </div>
     </section>

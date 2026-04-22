@@ -13,7 +13,10 @@ $breakpoints: (
 
 @function get-breakpoint($name) {
   $min: map.get($breakpoints, $name);
-  @return if($min != 0, $min, null);
+  @if $min != 0 {
+    @return $min;
+  }
+  @return null;
 }
 
 @mixin breakpoint($nameMin, $nameMax:"") {
