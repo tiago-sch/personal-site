@@ -67,11 +67,12 @@ const projects: Project[] = [
     title: 'RPG Session Teller',
     role: 'Solo Developer',
     problem: 'Turn messy bullet-point notes from tabletop RPG sessions into immersive, fantasy-style narrative text.',
-    outcome: 'In development — an AI-powered storytelling tool for tabletop RPG players.',
+    outcome: 'An AI-powered storytelling tool that transforms bullet-point session notes into immersive, fantasy-style narrative text for tabletop RPG players.',
     techStack: ['React', 'Vite', 'Tailwind', 'Gemini'],
     aiPowered: true,
-    comingSoon: true,
-    thumbnail: '/images/mirage-pale.png',
+    thumbnail: '/images/portfolio/session-teller.jpg',
+    liveUrl: 'https://session-teller.tiagoschmidt.com/',
+    githubUrl: 'https://github.com/tiago-sch/rpg-session-teller',
   },
 ]
 
