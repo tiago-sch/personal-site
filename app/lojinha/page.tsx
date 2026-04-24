@@ -35,6 +35,9 @@ const Store = async () => {
           <p className={styles.page__tagline}>
             Itens usados em ótimo estado, vendidos com carinho.
           </p>
+          <p className={styles.page__payment}>
+            Aceito pagamento via <strong>MercadoPago</strong>, inclusive parcelado.
+          </p>
           {available > 0 && (
             <p className={styles.page__count}>{available} {available === 1 ? 'item disponível' : 'itens disponíveis'}</p>
           )}
@@ -56,6 +59,9 @@ const Store = async () => {
           <h2 className={styles.page__contact_heading}>Interessou?</h2>
           <p className={styles.page__contact_sub}>
             Manda mensagem pelo Instagram ou WhatsApp que a gente se acerta!
+          </p>
+          <p className={styles.page__contact_payment}>
+            Aceito pagamento via <strong>MercadoPago</strong>, inclusive parcelado.
           </p>
           <div className={styles.page__contact_links}>
             <a

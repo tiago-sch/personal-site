@@ -44,8 +44,19 @@
   &__tagline {
     font-size: 17px;
     color: var(--spanishGray);
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     line-height: 1.5;
+  }
+
+  &__payment {
+    font-size: 14px;
+    color: var(--spanishGray);
+    margin-bottom: 16px;
+    line-height: 1.5;
+
+    strong {
+      color: var(--white);
+    }
   }
 
   &__count {
@@ -78,8 +89,19 @@
   &__contact_sub {
     font-size: 16px;
     color: var(--spanishGray);
+    margin-bottom: 8px;
+    line-height: 1.6;
+  }
+
+  &__contact_payment {
+    font-size: 14px;
+    color: var(--spanishGray);
     margin-bottom: 28px;
     line-height: 1.6;
+
+    strong {
+      color: var(--white);
+    }
   }
 
   &__contact_links {

@@ -371,9 +371,12 @@ export default function SimRacingPage() {
             <p className={styles.hero__tagline}>
               Setup montado com cuidado ao longo dos anos — Direct Drive Fanatec,
               cockpit profissional, triple 32" e tudo que você precisa pra correr.
-              Vendendo somente o kit completo, <strong>sem o PC gamer</strong>.
+              Venda preferencial do kit completo, <strong>sem o PC gamer</strong> — mas posso estudar vender em partes.
             </p>
-            <p className={styles.hero__price}>R$ 35.000</p>
+            <p className={styles.hero__price}>R$ 31.000</p>
+            <p className={styles.hero__installments}>
+              Parcelamento disponível via <strong>MercadoPago</strong> — consulte as condições pelo WhatsApp.
+            </p>
             <div className={styles.hero__stats}>
               <div className={styles.hero__stat}>
                 <strong>{items.length}</strong>

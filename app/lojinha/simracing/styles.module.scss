@@ -97,10 +97,20 @@
     font-size: 32px;
     font-weight: bold;
     color: #47c99b;
-    margin-bottom: 28px;
+    margin-bottom: 8px;
 
     @include mixins.breakpoint(md) {
       font-size: 40px;
+    }
+  }
+
+  &__installments {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 28px;
+
+    strong {
+      color: rgba(255, 255, 255, 0.85);
     }
   }
 
