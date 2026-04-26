@@ -32,4 +32,11 @@
       font-size: 17px;
     }
   }
+
+  &__foot-note {
+    text-align: center;
+    font-size: 13px;
+    color: var(--footer-note);
+    margin-top: 12px;
+  }
 }
