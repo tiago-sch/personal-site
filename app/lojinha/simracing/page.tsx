@@ -8,6 +8,9 @@ export const metadata: Metadata = {
 }
 
 const WHATSAPP = 'https://wa.me/5551991111210'
+const OLX = 'https://rs.olx.com.br/regioes-de-porto-alegre-torres-e-santa-cruz-do-sul/games/acessorios-de-video-game/setup-de-simulador-de-corrida-completo-1498899332?'
+const ML_BASICO = 'https://produto.mercadolivre.com.br/MLB-6708881676-setup-sim-racing-fanatec-dd-pro-cockpit-monitor-32-_JM'
+const ML_COMPLETO = 'https://produto.mercadolivre.com.br/MLB-6708884538-setup-sim-racing-fanatec-dd-pro-cockpit-monitor-32--_JM'
 
 // ─── Item data ────────────────────────────────────────────────────────────────
 
@@ -258,6 +261,21 @@ const items: SetupItem[] = [
 
   // Extras
   {
+    id: 'k400',
+    name: 'Microsoft All-In-One Media Keyboard',
+    subtitle: 'Teclado wireless com touchpad',
+    description:
+      'Teclado sem fio da Microsoft com touchpad integrado. Perfeito para o sim racing — controla o PC diretamente do cockpit sem precisar de mouse separado. Conexão via nano receptor USB.',
+    specs: [
+      'Wireless 2.4GHz (nano receptor)',
+      'Touchpad integrado',
+      'Teclas de mídia dedicadas',
+      'Alcance de até 10 metros',
+    ],
+    condition: 'Ótimo estado',
+    image: '/images/simracing/ms-keyboard.jpg',
+  },
+  {
     id: 'stream-deck',
     name: 'Elgato Stream Deck XL',
     price: 'R$ 2.000',
@@ -299,7 +317,7 @@ const categories = [
     id: 'extras',
     label: 'Extras',
     icon: '⚡',
-    ids: ['stream-deck'],
+    ids: ['k400', 'stream-deck'],
   },
 ]
 
@@ -422,18 +440,45 @@ export default function SimRacingPage() {
                 Ver todos os itens
               </a>
             </div>
+
+            <div className={styles.hero__marketplaces}>
+              <span className={styles.hero__marketplaces_label}>Ver também em:</span>
+              <div className={styles.hero__marketplaces_links}>
+                <a href={OLX} target="_blank" rel="noopener noreferrer" className={styles.hero__marketplace_link}>
+                  OLX
+                </a>
+                <a href={ML_BASICO} target="_blank" rel="noopener noreferrer" className={styles.hero__marketplace_link}>
+                  MercadoLivre — kit base*
+                </a>
+                <a href={ML_COMPLETO} target="_blank" rel="noopener noreferrer" className={styles.hero__marketplace_link}>
+                  MercadoLivre — completo*
+                </a>
+              </div>
+              <p className={styles.hero__marketplaces_note}>
+                * Preços no MercadoLivre incluem a taxa da plataforma. Pode combinar o valor anunciado nessa página pelo WhatsApp.
+              </p>
+            </div>
           </div>
           <div className={styles.hero__image}>
             <div className={styles.hero__gallery}>
               <div className={styles['hero__gallery-main']}>
-                <Image src="/images/simracing/setup.jpg" alt="Setup sim racing completo" fill sizes="(max-width: 1024px) 100vw, 420px" className={styles['hero__gallery-img']} />
+                <Image src="/images/simracing/IMG_1096.jpeg" alt="Setup sim racing completo — vista frontal" fill sizes="(max-width: 1024px) 100vw, 420px" className={styles['hero__gallery-img']} />
               </div>
               <div className={styles['hero__gallery-thumbs']}>
                 <div className={styles['hero__gallery-thumb']}>
-                  <Image src="/images/simracing/setup2.png" alt="Setup sim racing — vista 2" fill sizes="200px" className={styles['hero__gallery-img']} />
+                  <Image src="/images/simracing/IMG_1097.jpeg" alt="Setup sim racing — vista lateral" fill sizes="200px" className={styles['hero__gallery-img']} />
                 </div>
                 <div className={styles['hero__gallery-thumb']}>
-                  <Image src="/images/simracing/setup3.png" alt="Setup sim racing — vista 3" fill sizes="200px" className={styles['hero__gallery-img']} />
+                  <Image src="/images/simracing/IMG_1093.jpeg" alt="Setup sim racing — volantes" fill sizes="200px" className={styles['hero__gallery-img']} />
+                </div>
+                <div className={styles['hero__gallery-thumb']}>
+                  <Image src="/images/simracing/IMG_1095.jpeg" alt="Setup sim racing — volante Formula v2.5" fill sizes="200px" className={styles['hero__gallery-img']} />
+                </div>
+                <div className={styles['hero__gallery-thumb']}>
+                  <Image src="/images/simracing/IMG_1094.jpeg" alt="Setup sim racing — câmbio e freio de mão" fill sizes="200px" className={styles['hero__gallery-img']} />
+                </div>
+                <div className={styles['hero__gallery-thumb']}>
+                  <Image src="/images/simracing/IMG_1098.jpeg" alt="Setup sim racing — pedais" fill sizes="200px" className={styles['hero__gallery-img']} />
                 </div>
               </div>
             </div>
