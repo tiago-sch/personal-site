@@ -104,6 +104,18 @@
     }
   }
 
+  &__price_detail {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 14px;
+    max-width: 540px;
+    line-height: 1.6;
+
+    strong {
+      color: rgba(255, 255, 255, 0.9);
+    }
+  }
+
   &__installments {
     font-size: 14px;
     color: rgba(255, 255, 255, 0.6);
@@ -385,8 +397,13 @@
     flex-shrink: 0;
   }
 
-
-
+  &__price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #47c99b;
+    margin-top: auto;
+    padding-top: 4px;
+  }
 }
 
 // ─── Badges ───────────────────────────────────────────────────────────────────

@@ -20,6 +20,7 @@ interface SetupItem {
   condition: 'Ótimo estado' | 'Bom estado' | 'Precisa de atenção'
   highlight?: boolean
   image?: string
+  price?: string
 }
 
 const items: SetupItem[] = [
@@ -44,6 +45,7 @@ const items: SetupItem[] = [
   {
     id: 'formula-v25',
     name: 'Fanatec Formula v2.5',
+    price: 'R$ 3.500',
     subtitle: 'Volante estilo Fórmula',
     description:
       'Volante de alta qualidade no estilo fórmula com grip em alcantara, cluster de botões completo e shifters nas paletas. Ideal para fórmula e carros monoposto.',
@@ -60,6 +62,7 @@ const items: SetupItem[] = [
   {
     id: 'mclaren-gt3',
     name: 'Fanatec McLaren GT3',
+    price: 'R$ 2.000',
     subtitle: 'Volante licenciado McLaren',
     description:
       'Volante oficial licenciado da McLaren para GT3. Design fiel ao volante real, com todos os controles e botões necessários para corridas GT. Destaque visual no setup.',
@@ -90,6 +93,7 @@ const items: SetupItem[] = [
   {
     id: 'handbrake',
     name: 'Fanatec Handbrake',
+    price: 'R$ 1.500',
     subtitle: 'Freio de mão sim racing',
     description:
       'Freio de mão da Fanatec para rally e drift. Conexão via USB ou porta RJ12 da base. Essencial para quem corre em rally ou quer um setup mais completo.',
@@ -105,6 +109,7 @@ const items: SetupItem[] = [
   {
     id: 'shifter',
     name: 'Fanatec Clubsport Shifter SQ 1.5',
+    price: 'R$ 3.000',
     subtitle: 'Câmbio sequencial + H-pattern',
     description:
       'Câmbio de alta qualidade com dois modos: sequencial e H-pattern (6 marchas + ré). Construção metálica robusta com sensação de troca fiel. Compatível com a base via RJ12.',
@@ -237,6 +242,7 @@ const items: SetupItem[] = [
   {
     id: 'dashboard',
     name: 'Dashboard HDMI Ultrawide com LEDs',
+    price: 'R$ 1.000',
     subtitle: 'Painel de marcha e telemetria',
     description:
       'Dashboard específico para sim racing com conexão HDMI, formato ultrawide e LEDs indicadores de marcha. Exibe dados de telemetria em tempo real no cockpit.',
@@ -254,6 +260,7 @@ const items: SetupItem[] = [
   {
     id: 'stream-deck',
     name: 'Elgato Stream Deck XL',
+    price: 'R$ 2.000',
     subtitle: '32 botões programáveis',
     description:
       'Stream Deck XL da Elgato com 32 teclas LCD programáveis. No contexto do sim racing, ideal para controlar pit menus, configurações de carro, windscreen wiper, luzes e qualquer ação de teclado em tempo real sem tirar as mãos do volante.',
@@ -346,6 +353,10 @@ const ItemCard = ({ item }: { item: SetupItem }) => (
         ))}
       </ul>
 
+      {item.price && (
+        <p className={styles.card__price}>{item.price}</p>
+      )}
+
     </div>
   </article>
 )
@@ -373,7 +384,10 @@ export default function SimRacingPage() {
               cockpit profissional, triple 32" e tudo que você precisa pra correr.
               Venda preferencial do kit completo, <strong>sem o PC gamer</strong> — mas posso estudar vender em partes.
             </p>
-            <p className={styles.hero__price}>R$ 31.000</p>
+            <p className={styles.hero__price}>a partir de R$ 16.200</p>
+            <p className={styles.hero__price_detail}>
+              Kit base inclui: <strong>Fanatec DD Pro Kit 8Nm</strong>, borrachas de freio, cockpit completo com upgrades, 1 monitor Asus 32" e kit de lentes ROG. Setup completo por <strong>R$ 30.000</strong>.
+            </p>
             <p className={styles.hero__installments}>
               Parcelamento disponível via <strong>MercadoPago</strong> — consulte as condições pelo WhatsApp.
             </p>
