@@ -46,9 +46,9 @@ const Store = async () => {
         <div className="container">
           <a href="/lojinha/simracing" className={styles.page__featured}>
             <span className={styles['page__featured-badge']}>⚡ Destaque</span>
-            <span className={styles['page__featured-title']}>Setup Sim Racing Completo</span>
+            <span className={styles['page__featured-title']}>Setup Sim Racing</span>
             <span className={styles['page__featured-sub']}>
-              Direct Drive Fanatec 8Nm · Triple 32" 1440p · Cockpit profissional · 15+ itens
+              Direct Drive Fanatec 8Nm · Monitor 32" 1440p · Cockpit profissional · vendendo peça por peça
             </span>
             <span className={styles['page__featured-cta']}>Ver setup →</span>
           </a>

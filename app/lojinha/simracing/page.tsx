@@ -3,14 +3,11 @@ import Image from 'next/image'
 import styles from './styles.module.scss'
 
 export const metadata: Metadata = {
-  title: "Setup Sim Racing Completo — Lojinha do Tiago",
-  description: "Setup de sim racing montado com cuidado ao longo dos anos. Fanatec DD Pro 8Nm, cockpit Extreme Simracing VE-3, triple monitor 32\" e muito mais. Vendendo completo ou em partes.",
+  title: "Setup Sim Racing — Lojinha do Tiago",
+  description: "Setup de sim racing montado com cuidado ao longo dos anos. Fanatec DD Pro 8Nm, cockpit Extreme Simracing VE-3, monitores 32\" e muito mais. Vendendo peça por peça.",
 }
 
 const WHATSAPP = 'https://wa.me/5551991111210'
-const OLX = 'https://rs.olx.com.br/regioes-de-porto-alegre-torres-e-santa-cruz-do-sul/games/acessorios-de-video-game/setup-de-simulador-de-corrida-completo-1498899332?'
-const ML_BASICO = 'https://produto.mercadolivre.com.br/MLB-6708881676-setup-sim-racing-fanatec-dd-pro-cockpit-monitor-32-_JM'
-const ML_COMPLETO = 'https://produto.mercadolivre.com.br/MLB-6708884538-setup-sim-racing-fanatec-dd-pro-cockpit-monitor-32--_JM'
 
 // ─── Item data ────────────────────────────────────────────────────────────────
 
@@ -24,6 +21,10 @@ interface SetupItem {
   highlight?: boolean
   image?: string
   price?: string
+  sold?: boolean
+  includedWith?: string
+  mlLink?: string
+  olxLink?: string
 }
 
 const items: SetupItem[] = [
@@ -31,40 +32,42 @@ const items: SetupItem[] = [
   {
     id: 'dd-pro',
     name: 'Fanatec DD Pro Kit 8NM',
-    subtitle: 'Base Direct Drive + Pedais Clubsport + Volante GT7',
+    price: 'R$ 13.500',
+    subtitle: 'Base Direct Drive + Pedais CSL + Volante GT7',
     description:
-      'Kit completo da Fanatec com base Direct Drive de 8Nm de torque de pico, licenciada para PlayStation. Inclui pedais Clubsport com célula de carga no freio e volante GT7. A base mais popular do mercado entry-to-mid Direct Drive.',
+      'Kit completo da Fanatec com base Direct Drive de 8Nm de torque de pico, licenciada para PlayStation. Inclui pedais CSL e volante GT7. A base mais popular do mercado entry-to-mid Direct Drive.',
     specs: [
       'Torque: 8Nm de pico',
       'Compatível com PS4, PS5 e PC',
-      'Pedais com load cell no freio',
-      'Conector Quick Release incluído',
+      'Pedais CSL incluídos',
+      'Volante GT7 incluído',
       'Fonte 180W incluída',
     ],
     condition: 'Ótimo estado',
     highlight: true,
     image: '/images/simracing/dd-pro.webp',
+    mlLink: 'https://produto.mercadolivre.com.br/MLB-6731726158-kit-fanatec-gran-turismo-dd-pro-8nm-volante-gt-load-cell-_JM',
+    olxLink: 'https://rs.olx.com.br/regioes-de-porto-alegre-torres-e-santa-cruz-do-sul/games/acessorios-de-video-game/kit-fanatec-dd-pro-8nm-gran-turismo-pedal-load-cell-1500179112?',
   },
   {
-    id: 'formula-v25',
-    name: 'Fanatec Formula v2.5',
-    price: 'R$ 3.500',
-    subtitle: 'Volante estilo Fórmula',
+    id: 'load-cell',
+    name: 'Fanatec Load Cell',
+    price: 'Incluso com Kit DD Pro',
+    subtitle: 'Upgrade de célula de carga para pedais',
     description:
-      'Volante de alta qualidade no estilo fórmula com grip em alcantara, cluster de botões completo e shifters nas paletas. Ideal para fórmula e carros monoposto.',
+      'Kit de upgrade de célula de carga para os pedais Fanatec CSL. Transforma a resposta do freio com frenagem baseada em força, não em curso. Inclui borrachas de upgrade de dureza variada.',
     specs: [
-      'Grip em alcantara',
-      'Shifters de paleta',
-      'Botões programáveis',
-      'LED de marcha integrado',
-      'Quick Release Fanatec',
+      'Sensor de célula de carga',
+      'Frenagem por força (não por curso)',
+      'Borrachas de upgrade incluídas',
+      'Compatível com pedais CSL Fanatec',
     ],
     condition: 'Ótimo estado',
-    image: '/images/simracing/formula-v25.webp',
+    image: '/images/simracing/brake-rubber.jpg',
   },
   {
     id: 'mclaren-gt3',
-    name: 'Fanatec McLaren GT3',
+    name: 'Volante Fanatec McLaren GT3',
     price: 'R$ 2.000',
     subtitle: 'Volante licenciado McLaren',
     description:
@@ -78,24 +81,31 @@ const items: SetupItem[] = [
     ],
     condition: 'Ótimo estado',
     image: '/images/simracing/mclaren-gt3.webp',
+    mlLink: 'https://produto.mercadolivre.com.br/MLB-4660878225-volante-fanatec-mclaren-gt3-_JM',
+    olxLink: 'https://rs.olx.com.br/regioes-de-porto-alegre-torres-e-santa-cruz-do-sul/games/acessorios-de-video-game/volante-fanatec-mclaren-gt3-1500180074?',
   },
   {
-    id: 'brake-rubber',
-    name: 'Borrachas de Upgrade de Freio',
-    subtitle: 'Performance upgrade para pedais Fanatec',
+    id: 'formula-v25',
+    name: 'Volante Fanatec Formula v2.5',
+    price: 'R$ 3.500',
+    subtitle: 'Volante estilo Fórmula',
     description:
-      'Kit de borrachas de dureza variada para personalizar a sensação do freio nos pedais Fanatec. Permite ajustar a resistência conforme preferência de driving.',
+      'Volante de alta qualidade no estilo fórmula com grip em alcantara, cluster de botões completo e shifters nas paletas. Ideal para fórmula e carros monoposto.',
     specs: [
-      'Compatível com pedais Fanatec Clubsport',
-      'Diferentes durezas incluídas',
-      'Melhora a progressividade do freio',
+      'Grip em alcantara',
+      'Shifters de paleta',
+      'Botões programáveis',
+      'LED de marcha integrado',
+      'Quick Release Fanatec',
     ],
     condition: 'Ótimo estado',
-    image: '/images/simracing/brake-rubber.jpg',
+    image: '/images/simracing/formula-v25.webp',
+    mlLink: 'https://produto.mercadolivre.com.br/MLB-4660849539-volante-fanatec-formula-v25x-podium-advanced-paddle-_JM',
+    olxLink: 'https://rs.olx.com.br/regioes-de-porto-alegre-torres-e-santa-cruz-do-sul/games/acessorios-de-video-game/volante-fanatec-formula-v2-5-1500179734?',
   },
   {
     id: 'handbrake',
-    name: 'Fanatec Handbrake',
+    name: 'Freio de Mão Fanatec',
     price: 'R$ 1.500',
     subtitle: 'Freio de mão sim racing',
     description:
@@ -108,10 +118,12 @@ const items: SetupItem[] = [
     ],
     condition: 'Ótimo estado',
     image: '/images/simracing/handbrake.png',
+    mlLink: 'https://produto.mercadolivre.com.br/MLB-6731996120-freio-de-mo-fanatec-clubsport-handbrake-v15-_JM',
+    olxLink: 'https://rs.olx.com.br/regioes-de-porto-alegre-torres-e-santa-cruz-do-sul/games/acessorios-de-video-game/freio-de-mao-fanatec-clubsport-handbrake-v1-5-1500180869?',
   },
   {
     id: 'shifter',
-    name: 'Fanatec Clubsport Shifter SQ 1.5',
+    name: 'Câmbio Fanatec Clubsport SQ 1.5',
     price: 'R$ 3.000',
     subtitle: 'Câmbio sequencial + H-pattern',
     description:
@@ -125,82 +137,39 @@ const items: SetupItem[] = [
     ],
     condition: 'Ótimo estado',
     image: '/images/simracing/shifter.webp',
+    mlLink: 'https://produto.mercadolivre.com.br/MLB-6731992982-cambio-fanatec-clubsport-sq15-_JM',
+    olxLink: 'https://rs.olx.com.br/regioes-de-porto-alegre-torres-e-santa-cruz-do-sul/games/acessorios-de-video-game/cambio-fanatec-shifter-sq-1-5-1500180564?',
   },
 
   // Cockpit
   {
     id: 'cockpit',
     name: 'Cockpit Extreme Simracing VE-3',
-    subtitle: 'Chassi completo profissional',
+    price: 'R$ 3.000',
+    subtitle: 'Chassi completo + banco + acessórios',
     description:
-      'Cockpit profissional da Extreme Simracing, modelo VE-3. Estrutura em perfil de alumínio de alta rigidez com múltiplos pontos de ajuste. Zero flexibilidade — transmite cada detalhe do force feedback.',
+      'Cockpit profissional da Extreme Simracing, modelo VE-3. Estrutura em perfil de alumínio de alta rigidez. Inclui banco XT Premium em couro sintético, porta-teclado, bandeja de mouse, duas bandejas laterais e suporte traseiro para PC.',
     specs: [
       'Perfil de alumínio 80x40mm',
       'Ajuste de profundidade e altura',
-      'Suporte para base DD',
-      'Pontos de montagem VESA',
-      'Capacidade de carga elevada',
+      'Banco XT Premium incluído',
+      'Porta-teclado ajustável incluído',
+      '2× bandejas laterais incluídas',
+      'Suporte traseiro para PC incluído',
     ],
     condition: 'Ótimo estado',
     highlight: true,
     image: '/images/simracing/cockpit.png',
   },
-  {
-    id: 'cockpit-accessories',
-    name: 'Acessórios Cockpit Extreme Simracing',
-    subtitle: 'Kit completo de montagem',
-    description:
-      'Conjunto completo de acessórios para o cockpit VE-3: porta-teclado, bandeja de mouse, duas bandejas laterais e suporte traseiro para PC. Tudo montado e funcionando.',
-    specs: [
-      'Porta-teclado ajustável',
-      'Bandeja de mouse',
-      '2× bandejas laterais',
-      'Suporte traseiro para PC',
-      'Todos os parafusos incluídos',
-    ],
-    condition: 'Ótimo estado',
-    image: '/images/simracing/cockpit-accessories.png',
-  },
-  {
-    id: 'seat',
-    name: 'Banco Extreme Simracing XT Premium',
-    subtitle: 'Assento racing premium',
-    description:
-      'Banco premium da Extreme Simracing em couro sintético com suporte lateral excelente. Confortável para longas sessões de corrida, com fixação direta no cockpit VE-3.',
-    specs: [
-      'Couro sintético premium',
-      'Suporte lateral e lombar',
-      'Fixação universal com slides',
-      'Compatível com cockpit VE-3',
-      'Suporta até 120kg',
-    ],
-    condition: 'Ótimo estado',
-    image: '/images/simracing/seat.jpg',
-  },
-  {
-    id: 'triple-stand',
-    name: 'Suporte Triple Monitor Extreme Simracing',
-    subtitle: 'Para 3 monitores de até 32"',
-    description:
-      'Suporte de triple monitor da Extreme Simracing, projetado para o cockpit VE-3. Ajuste de ângulo nas telas laterais para imersão máxima. Suporta monitores de até 32".',
-    specs: [
-      'Suporta 3× monitores até 32"',
-      'Ângulo lateral ajustável',
-      'Montagem VESA 100×100',
-      'Fixação no cockpit VE-3',
-      'Construção em alumínio',
-    ],
-    condition: 'Ótimo estado',
-    image: '/images/simracing/triple-stand.jpg',
-  },
 
   // Monitores & Display
   {
-    id: 'asus-monitors',
-    name: '3× Asus 32" VG32VQ',
-    subtitle: 'Triple monitor setup 1440p 165Hz',
+    id: 'asus-monitor',
+    name: 'Monitor Asus 32" VG32VQ',
+    price: 'R$ 1.200',
+    subtitle: '1440p 165Hz — VA curvo 1500R',
     description:
-      'Três monitores Asus de 32" com painel VA curvo (1500R), resolução QHD 1440p e 165Hz. A combinação perfeita para triple setup — campo de visão amplo com alta resolução e fluidez.',
+      'Monitor Asus de 32" com painel VA curvo (1500R), resolução QHD 1440p e 165Hz. Excelente para sim racing — alta resolução e fluidez com ótimo campo de visão.',
     specs: [
       'Resolução: 2560×1440 (QHD)',
       'Taxa de atualização: 165Hz',
@@ -210,12 +179,12 @@ const items: SetupItem[] = [
       'HDMI 2.0 + DisplayPort 1.2',
     ],
     condition: 'Ótimo estado',
-    highlight: true,
     image: '/images/simracing/asus-monitors.webp',
   },
   {
     id: 'rog-lenses',
     name: 'Kit Asus ROG Multi Monitor Lenses',
+    price: 'R$ 500',
     subtitle: 'Lentes de imersão para triple setup',
     description:
       'Kit de lentes da Asus ROG desenvolvido para aumentar a imersão em configurações de múltiplos monitores. Reduz a distração das bordas entre os monitores.',
@@ -225,22 +194,8 @@ const items: SetupItem[] = [
       'Fácil instalação magnética',
     ],
     condition: 'Bom estado',
+    sold: true,
     image: '/images/simracing/rog-lenses.webp',
-  },
-  {
-    id: 'lg-ultrawide',
-    name: 'Monitor LG 29" Ultrawide',
-    subtitle: '2560×1080 — pode precisar de conserto',
-    description:
-      'Monitor ultrawide 29" da LG com resolução 2560×1080. Vendido no estado — pode precisar de algum reparo (não testado recentemente). Ótimo para quem quer usar como telemetria ou dashboard secundário.',
-    specs: [
-      'Resolução: 2560×1080',
-      'Painel IPS',
-      'Aspect ratio 21:9',
-      'Vendido no estado',
-    ],
-    condition: 'Precisa de atenção',
-    image: '/images/simracing/lg-ultrawide.jpg',
   },
   {
     id: 'dashboard',
@@ -256,24 +211,8 @@ const items: SetupItem[] = [
       'Compatível com iRacing, ACC, AMS2 e outros',
     ],
     condition: 'Ótimo estado',
+    sold: true,
     image: '/images/simracing/dashboard.png',
-  },
-
-  // Extras
-  {
-    id: 'k400',
-    name: 'Microsoft All-In-One Media Keyboard',
-    subtitle: 'Teclado wireless com touchpad',
-    description:
-      'Teclado sem fio da Microsoft com touchpad integrado. Perfeito para o sim racing — controla o PC diretamente do cockpit sem precisar de mouse separado. Conexão via nano receptor USB.',
-    specs: [
-      'Wireless 2.4GHz (nano receptor)',
-      'Touchpad integrado',
-      'Teclas de mídia dedicadas',
-      'Alcance de até 10 metros',
-    ],
-    condition: 'Ótimo estado',
-    image: '/images/simracing/ms-keyboard.jpg',
   },
   {
     id: 'stream-deck',
@@ -291,6 +230,8 @@ const items: SetupItem[] = [
     ],
     condition: 'Ótimo estado',
     image: '/images/simracing/stream-deck.jpg',
+    mlLink: 'https://produto.mercadolivre.com.br/MLB-6732076994-stream-deck-elgato-deck-xl-_JM',
+    olxLink: 'https://rs.olx.com.br/regioes-de-porto-alegre-torres-e-santa-cruz-do-sul/informatica/perifericos-de-computador/stream-deck-xl-1500181146?',
   },
 ]
 
@@ -299,25 +240,19 @@ const categories = [
     id: 'controls',
     label: 'Base & Controles',
     icon: '🎮',
-    ids: ['dd-pro', 'formula-v25', 'mclaren-gt3', 'brake-rubber', 'handbrake', 'shifter'],
+    ids: ['dd-pro', 'load-cell', 'mclaren-gt3', 'formula-v25', 'handbrake', 'shifter'],
   },
   {
     id: 'cockpit',
     label: 'Cockpit & Assento',
     icon: '🏎️',
-    ids: ['cockpit', 'cockpit-accessories', 'seat', 'triple-stand'],
+    ids: ['cockpit'],
   },
   {
     id: 'displays',
-    label: 'Monitores & Displays',
+    label: 'Monitores & Extras',
     icon: '🖥️',
-    ids: ['asus-monitors', 'rog-lenses', 'lg-ultrawide', 'dashboard'],
-  },
-  {
-    id: 'extras',
-    label: 'Extras',
-    icon: '⚡',
-    ids: ['k400', 'stream-deck'],
+    ids: ['asus-monitor', 'rog-lenses', 'dashboard', 'stream-deck'],
   },
 ]
 
@@ -343,10 +278,11 @@ const ImagePlaceholder = ({ label }: { label: string }) => (
 )
 
 const ItemCard = ({ item }: { item: SetupItem }) => (
-  <article className={`${styles.card} ${item.highlight ? styles['card--highlight'] : ''}`} id={item.id}>
+  <article className={`${styles.card} ${item.highlight ? styles['card--highlight'] : ''} ${item.sold ? styles['card--sold'] : ''}`} id={item.id}>
     {item.image ? (
       <div className={styles.card__image}>
         <Image src={item.image} alt={item.name} fill sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw" className={styles['card__image-img']} />
+        {item.sold && <div className={styles.card__sold_overlay}>Vendido</div>}
       </div>
     ) : (
       <ImagePlaceholder label={item.name} />
@@ -357,7 +293,11 @@ const ItemCard = ({ item }: { item: SetupItem }) => (
           <h3 className={styles.card__name}>{item.name}</h3>
           {item.subtitle && <p className={styles.card__subtitle}>{item.subtitle}</p>}
         </div>
-        <ConditionBadge condition={item.condition} />
+        {item.sold ? (
+          <span className={`${styles.badge} ${styles['badge--sold']}`}>Vendido</span>
+        ) : (
+          <ConditionBadge condition={item.condition} />
+        )}
       </div>
 
       <p className={styles.card__desc}>{item.description}</p>
@@ -372,7 +312,22 @@ const ItemCard = ({ item }: { item: SetupItem }) => (
       </ul>
 
       {item.price && (
-        <p className={styles.card__price}>{item.price}</p>
+        <p className={`${styles.card__price} ${item.sold ? styles['card__price--sold'] : ''}`}>{item.price}</p>
+      )}
+
+      {!item.sold && (item.mlLink || item.olxLink) && (
+        <div className={styles.card__marketplaces}>
+          {item.mlLink && (
+            <a href={item.mlLink} target="_blank" rel="noopener noreferrer" className={styles.card__marketplace_link}>
+              MercadoLivre
+            </a>
+          )}
+          {item.olxLink && (
+            <a href={item.olxLink} target="_blank" rel="noopener noreferrer" className={styles.card__marketplace_link}>
+              OLX
+            </a>
+          )}
+        </div>
       )}
 
     </div>
@@ -396,68 +351,29 @@ export default function SimRacingPage() {
         <div className={`container ${styles.hero__inner}`}>
           <div className={styles.hero__text}>
             <span className={styles.hero__eyebrow}>Lojinha do Tiago</span>
-            <h1 className={styles.hero__title}>Setup Sim Racing Completo</h1>
+            <h1 className={styles.hero__title}>Setup Sim Racing</h1>
             <p className={styles.hero__tagline}>
               Setup montado com cuidado ao longo dos anos — Direct Drive Fanatec,
-              cockpit profissional, triple 32" e tudo que você precisa pra correr.
-              Venda preferencial do kit completo, <strong>sem o PC gamer</strong> — mas posso estudar vender em partes.
-            </p>
-            <p className={styles.hero__price}>a partir de R$ 16.200</p>
-            <p className={styles.hero__price_detail}>
-              Kit base inclui: <strong>Fanatec DD Pro Kit 8Nm</strong>, borrachas de freio, cockpit completo com upgrades, 1 monitor Asus 32" e kit de lentes ROG. Setup completo por <strong>R$ 30.000</strong>.
+              cockpit profissional, monitores 32" e tudo que você precisa pra correr.
+              Vendendo <strong>peça por peça</strong>.
             </p>
             <p className={styles.hero__installments}>
               Parcelamento disponível via <strong>MercadoPago</strong> — consulte as condições pelo WhatsApp.
             </p>
-            <div className={styles.hero__stats}>
-              <div className={styles.hero__stat}>
-                <strong>{items.length}</strong>
-                <span>itens</span>
-              </div>
-              <div className={styles.hero__stat}>
-                <strong>8Nm</strong>
-                <span>Direct Drive</span>
-              </div>
-              <div className={styles.hero__stat}>
-                <strong>3×32"</strong>
-                <span>triple screen</span>
-              </div>
-              <div className={styles.hero__stat}>
-                <strong>1440p</strong>
-                <span>165Hz</span>
-              </div>
-            </div>
             <div className={styles.hero__ctas}>
               <a
-                href={`${WHATSAPP}?text=Oi Tiago! Vi o seu setup sim racing e quero saber mais!`}
+                href={`${WHATSAPP}?text=Oi Tiago! Vi o seu setup sim racing e tenho interesse em uma peça!`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${styles['hero__btn']} ${styles['hero__btn--primary']}`}
               >
-                Quero o setup completo
+                Tenho interesse
               </a>
               <a href="#items" className={`${styles['hero__btn']} ${styles['hero__btn--secondary']}`}>
                 Ver todos os itens
               </a>
             </div>
 
-            <div className={styles.hero__marketplaces}>
-              <span className={styles.hero__marketplaces_label}>Ver também em:</span>
-              <div className={styles.hero__marketplaces_links}>
-                <a href={OLX} target="_blank" rel="noopener noreferrer" className={styles.hero__marketplace_link}>
-                  OLX
-                </a>
-                <a href={ML_BASICO} target="_blank" rel="noopener noreferrer" className={styles.hero__marketplace_link}>
-                  MercadoLivre — kit base*
-                </a>
-                <a href={ML_COMPLETO} target="_blank" rel="noopener noreferrer" className={styles.hero__marketplace_link}>
-                  MercadoLivre — completo*
-                </a>
-              </div>
-              <p className={styles.hero__marketplaces_note}>
-                * Preços no MercadoLivre incluem a taxa da plataforma. Pode combinar o valor anunciado nessa página pelo WhatsApp.
-              </p>
-            </div>
           </div>
           <div className={styles.hero__image}>
             <div className={styles.hero__gallery}>
