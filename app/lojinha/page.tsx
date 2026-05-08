@@ -1,26 +1,65 @@
 import { type Metadata } from 'next'
-import StoreList from "../../src/components/Store/List";
 import styles from './styles.module.scss'
+import FilteredGrid, { type LojinhaItem } from '../../src/components/Store/FilteredGrid'
+import { simRacingItems } from '../../src/data/simracing'
 
 export const metadata: Metadata = {
   title: "Lojinha do Tiago — Usados com carinho",
   description: "Vendo itens usados em ótimo estado. Interessou? Entra em contato pelo Instagram ou WhatsApp.",
 }
 
+const brlFormatter = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format
+
+function parseSimPrice(price: string): number | null {
+  if (!price.startsWith('R$')) return null
+  const n = Number(price.replace('R$', '').trim().replace(/\./g, '').replace(',', '.'))
+  return isNaN(n) ? null : n
+}
+
 const Store = async () => {
-  const fetched = await fetch(process.env.NEXT_APP_LOJINHA_URL, { next: { revalidate: 3600 } });
-  const data = await fetched.json();
+  // Fetch Google Sheets items (optional — page still works without env var)
+  let sheetsItems: LojinhaItem[] = []
+  try {
+    if (process.env.NEXT_APP_LOJINHA_URL) {
+      const fetched = await fetch(process.env.NEXT_APP_LOJINHA_URL, { next: { revalidate: 3600 } })
+      const data = await fetched.json()
+      sheetsItems = (data?.values ?? []).map((item: string[], idx: number) => ({
+        id: `outros-${item[1] ?? idx}`,
+        name: item[0],
+        image: item[4],
+        price: Number(item[3]),
+        priceLabel: brlFormatter(Number(item[3])),
+        description: item[2],
+        sold: item[5] === 'TRUE',
+        category: 'outros' as const,
+      }))
+    }
+  } catch {
+    // silently degrade — sim racing items still show
+  }
 
-  const items = data?.values?.map(item => ({
-    name: item[0],
-    slug: item[1],
-    value: item[3],
-    description: item[2],
-    pic: item[4],
-    sold: item[5] === "TRUE"
-  }));
+  // Map sim racing items to unified type (skip items without a real price)
+  const simItems: LojinhaItem[] = simRacingItems
+    .map(item => {
+      const price = item.price ? parseSimPrice(item.price) : null
+      if (price === null) return null
+      return {
+        id: `simracing-${item.id}`,
+        name: item.name,
+        subtitle: item.subtitle,
+        image: item.image ?? '',
+        price,
+        priceLabel: item.price!,
+        sold: item.sold ?? false,
+        category: 'sim-racing' as const,
+        mlLink: item.mlLink,
+        olxLink: item.olxLink,
+      } satisfies LojinhaItem
+    })
+    .filter((i): i is LojinhaItem => i !== null)
 
-  const available = items?.filter(i => !i.sold).length ?? 0
+  const allItems: LojinhaItem[] = [...simItems, ...sheetsItems]
+  const available = allItems.filter(i => !i.sold).length
 
   return (
     <div className={styles.page}>
@@ -50,9 +89,10 @@ const Store = async () => {
             <span className={styles['page__featured-sub']}>
               Direct Drive Fanatec 8Nm · Monitor 32" 1440p · Cockpit profissional · vendendo peça por peça
             </span>
-            <span className={styles['page__featured-cta']}>Ver setup →</span>
+            <span className={styles['page__featured-cta']}>Ver detalhes completos →</span>
           </a>
-          <StoreList items={items} />
+
+          <FilteredGrid items={allItems} />
         </div>
 
         <div className={`container ${styles.page__contact}`}>
