@@ -58,7 +58,7 @@ const Store = async () => {
     })
     .filter((i): i is LojinhaItem => i !== null)
 
-  const allItems: LojinhaItem[] = [...simItems, ...sheetsItems]
+  const allItems: LojinhaItem[] = [...sheetsItems, ...simItems]
   const available = allItems.filter(i => !i.sold).length
 
   return (
