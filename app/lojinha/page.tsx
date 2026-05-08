@@ -56,7 +56,7 @@ const Store = async () => {
         olxLink: item.olxLink,
       } satisfies LojinhaItem
     })
-    .filter((i): i is LojinhaItem => i !== null)
+    .filter((i): i is NonNullable<typeof i> => i !== null)
 
   const allItems: LojinhaItem[] = [...sheetsItems, ...simItems]
   const available = allItems.filter(i => !i.sold).length
