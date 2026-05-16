@@ -60,6 +60,7 @@ export const simRacingItems: SimRacingItem[] = [
   {
     id: 'mclaren-gt3',
     name: 'Volante Fanatec McLaren GT3',
+    sold: true,
     price: 'R$ 2.000',
     subtitle: 'Volante licenciado McLaren',
     description:
@@ -153,6 +154,7 @@ export const simRacingItems: SimRacingItem[] = [
   {
     id: 'cockpit',
     name: 'Cockpit Extreme Simracing VE-3',
+    sold: true,
     price: 'R$ 3.000',
     subtitle: 'Chassi completo + banco + acessórios',
     description:
