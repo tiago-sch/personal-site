@@ -85,6 +85,7 @@ export const simRacingItems: SimRacingItem[] = [
     id: 'formula-v25',
     name: 'Volante Fanatec Formula v2.5',
     price: 'R$ 3.500',
+    sold: true,
     subtitle: 'Volante estilo Fórmula',
     description:
       'Volante de alta qualidade no estilo fórmula com grip em alcantara, cluster de botões completo e shifters nas paletas. Ideal para fórmula e carros monoposto.',
@@ -109,6 +110,7 @@ export const simRacingItems: SimRacingItem[] = [
     id: 'handbrake',
     name: 'Freio de Mão Fanatec',
     price: 'R$ 1.500',
+    sold: true,
     subtitle: 'Freio de mão sim racing',
     description:
       'Freio de mão da Fanatec para rally e drift. Conexão via USB ou porta RJ12 da base. Essencial para quem corre em rally ou quer um setup mais completo.',
@@ -131,6 +133,7 @@ export const simRacingItems: SimRacingItem[] = [
     id: 'shifter',
     name: 'Câmbio Fanatec Clubsport SQ 1.5',
     price: 'R$ 3.000',
+    sold: true,
     subtitle: 'Câmbio sequencial + H-pattern',
     description:
       'Câmbio de alta qualidade com dois modos: sequencial e H-pattern (6 marchas + ré). Construção metálica robusta com sensação de troca fiel. Compatível com a base via RJ12.',
@@ -228,6 +231,7 @@ export const simRacingItems: SimRacingItem[] = [
     id: 'stream-deck',
     name: 'Elgato Stream Deck XL',
     price: 'R$ 2.000',
+    sold: true,
     subtitle: '32 botões programáveis',
     description:
       'Stream Deck XL da Elgato com 32 teclas LCD programáveis. No contexto do sim racing, ideal para controlar pit menus, configurações de carro, windscreen wiper, luzes e qualquer ação de teclado em tempo real sem tirar as mãos do volante.',
