@@ -18,7 +18,7 @@ interface Project {
 const projects: Project[] = [
   {
     title: "CastYou",
-    role: "Founder & Full-stack Developer",
+    role: "Full-stack Developer",
     problem:
       "Connect creative talent — actors, musicians, dancers, and more — with producers across film, TV, theater, and digital content.",
     outcome:
