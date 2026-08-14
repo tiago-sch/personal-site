@@ -17,15 +17,16 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Alamo Rent a Car",
-    role: "Frontend Developer", // TODO: replace with actual role
+    title: "CastYou",
+    role: "Founder & Full-stack Developer",
     problem:
-      "Modernise the customer-facing booking flow to increase conversion across devices.", // TODO: replace
+      "Connect creative talent — actors, musicians, dancers, and more — with producers across film, TV, theater, and digital content.",
     outcome:
-      "Delivered a responsive, accessible booking experience used by millions of customers globally.", // TODO: replace
-    techStack: ["React", "TypeScript", "SASS", "Node.js"],
-    aiPowered: false,
-    thumbnail: "/images/portfolio/alamo.jpg",
+      "An end-to-end casting marketplace with AI-powered matching and verified profiles, now in open beta.",
+    techStack: ["React", "Next.js", "TypeScript", "Tailwind", "React Native"],
+    aiPowered: true,
+    thumbnail: "/images/portfolio/castyou.jpg",
+    liveUrl: "https://castyou.app/",
   },
   {
     title: "Lupah",
@@ -37,27 +38,6 @@ const projects: Project[] = [
     techStack: ["React", "Next.js", "TypeScript", "Tailwind"],
     aiPowered: true,
     thumbnail: "/images/portfolio/lupah.jpg",
-  },
-  {
-    title: "Muambator",
-    role: "Frontend Lead", // TODO: replace with actual role
-    problem:
-      "Help Brazilian shoppers track international purchases in real time.", // TODO: replace
-    outcome:
-      "Rebuilt the tracking interface with a faster, mobile-first experience.", // TODO: replace
-    techStack: ["Django", "Python", "SASS", "Bootstrap"],
-    aiPowered: false,
-    thumbnail: "/images/portfolio/muambator.jpg",
-  },
-  {
-    title: "Perestroika",
-    role: "Frontend Developer", // TODO: replace with actual role
-    problem:
-      "Create an engaging online platform for a leading Brazilian creative school.", // TODO: replace
-    outcome: "Launched a performant, visually rich course catalogue site.", // TODO: replace
-    techStack: ["Django", "Python", "SASS", "Bootstrap"],
-    aiPowered: false,
-    thumbnail: "/images/portfolio/perestroika.jpg",
   },
   {
     title: "Movie Matcher",
@@ -83,6 +63,28 @@ const projects: Project[] = [
     aiPowered: true,
     thumbnail: "/images/portfolio/session-teller.jpg",
     liveUrl: "https://sessionteller.com/",
+  },
+  {
+    title: "Alamo Rent a Car",
+    role: "Frontend Developer", // TODO: replace with actual role
+    problem:
+      "Modernise the customer-facing booking flow to increase conversion across devices.", // TODO: replace
+    outcome:
+      "Delivered a responsive, accessible booking experience used by millions of customers globally.", // TODO: replace
+    techStack: ["React", "TypeScript", "SASS", "Node.js"],
+    aiPowered: false,
+    thumbnail: "/images/portfolio/alamo.jpg",
+  },
+  {
+    title: "Muambator",
+    role: "Frontend Lead", // TODO: replace with actual role
+    problem:
+      "Help Brazilian shoppers track international purchases in real time.", // TODO: replace
+    outcome:
+      "Rebuilt the tracking interface with a faster, mobile-first experience.", // TODO: replace
+    techStack: ["Django", "Python", "SASS", "Bootstrap"],
+    aiPowered: false,
+    thumbnail: "/images/portfolio/muambator.jpg",
   },
 ];
 
