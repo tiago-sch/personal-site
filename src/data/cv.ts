@@ -27,7 +27,7 @@ export const cvHeader = {
   location: 'Porto Alegre, RS — Brazil',
   links: [
     { label: 'tiagohammett@gmail.com', href: 'mailto:tiagohammett@gmail.com' },
-    { label: 'linkedin.com/in/t-schmidt', href: 'https://www.linkedin.com/in/t-schmidt/' },
+    { label: 'linkedin.com/in/tiago-sch', href: 'https://www.linkedin.com/in/tiago-sch/' },
     { label: 'github.com/tiago-sch', href: 'https://github.com/tiago-sch' },
     { label: 'tiagoschmidt.com', href: 'https://www.tiagoschmidt.com' },
   ],

@@ -26,7 +26,7 @@ const LDJson = {
   "nationality": "Brazilian",
   "url": siteUrl,
   "sameAs": [
-    "https://www.linkedin.com/in/t-schmidt/",
+    "https://www.linkedin.com/in/tiago-sch/",
     "https://github.com/tiago-sch/",
     "https://www.instagram.com/tiago.sch/",
     "https://www.youtube.com/channel/UC3rwmHd3_QSePebtxolkTng"

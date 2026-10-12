@@ -14,7 +14,7 @@ const icons = [
   {
     title: 'LinkedIn',
     icon: `${iconDir}linkedin.svg`,
-    link: 'https://www.linkedin.com/in/t-schmidt/'
+    link: 'https://www.linkedin.com/in/tiago-sch/'
   },
   {
     title: 'GitHub',
