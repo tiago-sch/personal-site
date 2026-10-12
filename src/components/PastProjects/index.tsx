@@ -9,7 +9,7 @@ interface Project {
   outcome: string;
   techStack: string[];
   aiPowered: boolean;
-  thumbnail: string;
+  thumbnail?: string;
   comingSoon?: boolean;
   liveUrl?: string;
   githubUrl?: string;
@@ -22,19 +22,19 @@ const projects: Project[] = [
     problem:
       "Connect creative talent — actors, musicians, dancers, and more — with producers across film, TV, theater, and digital content.",
     outcome:
-      "An end-to-end casting marketplace with AI-powered matching and verified profiles, now in open beta.",
-    techStack: ["React", "Next.js", "TypeScript", "Tailwind", "React Native"],
+      "Built solo from scratch: AI-powered matching, AI-generated casting-call flyers, swipe-based matching, direct messaging, and production-grade talent search. Now in open beta.",
+    techStack: ["React", "Next.js", "TypeScript", "Tailwind", "React Native", "OpenAI"],
     aiPowered: true,
     thumbnail: "/images/portfolio/castyou.jpg",
     liveUrl: "https://castyou.app/",
   },
   {
     title: "Lupah",
-    role: "Frontend Developer",
+    role: "Freelance Full-stack Developer",
     problem:
-      "Build a modern real estate platform connecting people and businesses to extraordinary properties.",
+      "Build a modern real estate platform for a Curitiba agency to buy, sell, rent, and manage properties.",
     outcome:
-      "Delivered a clean, conversion-focused property listing experience.",
+      "Delivered front end, back end, and API with a strong SEO focus, a conversion-focused listing experience, and integrations with external property marketplaces.",
     techStack: ["React", "Next.js", "TypeScript", "Tailwind"],
     aiPowered: true,
     thumbnail: "/images/portfolio/lupah.jpg",
@@ -66,25 +66,45 @@ const projects: Project[] = [
   },
   {
     title: "Alamo Rent a Car",
-    role: "Frontend Developer", // TODO: replace with actual role
+    role: "Senior Frontend Developer · IWS Isobar",
     problem:
-      "Modernise the customer-facing booking flow to increase conversion across devices.", // TODO: replace
+      "Evolve the Alamo and Enterprise rental websites across Adobe AEM, .NET, Sitecore, and Drupal back ends.",
     outcome:
-      "Delivered a responsive, accessible booking experience used by millions of customers globally.", // TODO: replace
-    techStack: ["React", "TypeScript", "SASS", "Node.js"],
+      "Shipped usable, accessible React/Redux interfaces for a global audience while mentoring new developers and interns.",
+    techStack: ["React", "Redux", "SASS", "Adobe AEM"],
     aiPowered: false,
     thumbnail: "/images/portfolio/alamo.jpg",
   },
   {
     title: "Muambator",
-    role: "Frontend Lead", // TODO: replace with actual role
+    role: "Frontend Developer · Bode.io",
     problem:
-      "Help Brazilian shoppers track international purchases in real time.", // TODO: replace
+      "Help Brazilian shoppers track their international purchases.",
     outcome:
-      "Rebuilt the tracking interface with a faster, mobile-first experience.", // TODO: replace
+      "Rebuilt the tracking interface as a faster, mobile-first experience.",
     techStack: ["Django", "Python", "SASS", "Bootstrap"],
     aiPowered: false,
     thumbnail: "/images/portfolio/muambator.jpg",
+  },
+  {
+    title: "ORA — Objetos Reais para Archicad",
+    role: "Freelance Full-stack Developer",
+    problem:
+      "Give architects a library of professionally modeled 3D Archicad objects based on real Brazilian furniture brands.",
+    outcome:
+      "Built the Django platform end to end, with free registration, per-object downloads, SEO, and subscription integrations.",
+    techStack: ["Django", "Python"],
+    aiPowered: false,
+  },
+  {
+    title: "DM Bard",
+    role: "Solo Developer",
+    problem:
+      "Set the mood at tabletop RPG sessions without juggling playlists.",
+    outcome:
+      "A music player for ambient tracks and soundscapes, built for Dungeon Masters to use mid-session.",
+    techStack: ["React"],
+    aiPowered: false,
   },
 ];
 
@@ -109,14 +129,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
     <li className={styles.card}>
       <div className={styles.card__thumbnail}>
-        <Image
-          src={thumbnail}
-          alt={`Screenshot of ${title}`}
-          fill
-          loading="lazy"
-          className={styles["card__thumb-img"]}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-        />
+        {thumbnail ? (
+          <Image
+            src={thumbnail}
+            alt={`Screenshot of ${title}`}
+            fill
+            loading="lazy"
+            className={styles["card__thumb-img"]}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+          />
+        ) : (
+          <div className={styles["card__thumb-placeholder"]} aria-hidden="true">
+            {title}
+          </div>
+        )}
         {comingSoon && (
           <span className={styles["card__wip-badge"]}>In Development</span>
         )}

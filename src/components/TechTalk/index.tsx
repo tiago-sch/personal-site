@@ -11,6 +11,7 @@ const aiExpert = [
 
 const aiProficient = [
   'OpenAI API',
+  'Gemini API',
   'Retrieval-Augmented Generation (RAG)',
   'LLM tool use / function calling',
   'Streaming responses',
@@ -29,11 +30,15 @@ const aiFamiliar = [
 const webExpert = [
   'HTML5', 'CSS3', 'SASS/SCSS', 'JavaScript ES6',
   'TypeScript', 'React', 'Next.js', 'Tailwind',
+  'Web Accessibility', 'Web Performance / Core Web Vitals', 'Redux',
 ]
 
-const webProficient = ['Node.js', 'Webpack', 'Jest', 'Python']
+const webProficient = [
+  'Design Systems', 'React Query / TanStack', 'GraphQL', 'Node.js',
+  'Webpack', 'Vite', 'Jest', 'Python', 'Django',
+]
 
-const webFamiliar = ['PHP', 'SQL', 'Laravel', 'Django']
+const webFamiliar = ['PHP', 'SQL', 'Laravel', 'React Native']
 
 // ── Links ───────────────────────────────────────────────────────────────────
 
@@ -102,8 +107,8 @@ const TechTalk: React.FC = () => {
           <BadgeGroup label="Familiar" tier="familiar" items={webFamiliar} />
 
           <p className={styles['tech-talk__context']}>
-            I prioritize styling architecture, semantic markup, and mobile-first responsive design
-            using{' '}<ExternalLink href={getBEMLink}>BEM</ExternalLink> and{' '}
+            Accessibility, usability, and web performance are non-negotiables in everything I ship. I
+            prioritize styling architecture, semantic markup, and mobile-first responsive design using{' '}<ExternalLink href={getBEMLink}>BEM</ExternalLink> and{' '}
             <ExternalLink href={functionalStylingLink}>functional CSS</ExternalLink> methodologies.
           </p>
         </div>

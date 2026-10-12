@@ -18,7 +18,7 @@ const LDJson = {
   "@type": "Person",
   "email": "tiagohammett@gmail.com",
   "image": ogImage,
-  "jobTitle": "Frontend Engineer",
+  "jobTitle": "Senior Frontend Engineer",
   "name": "Tiago Schmidt",
   "birthPlace": "Porto Alegre, RS - Brazil",
   "birthDate": "1990-09-15",
@@ -34,8 +34,8 @@ const LDJson = {
 }
 
 export const metadata: Metadata = {
-  title: 'Tiago Schmidt | Frontend Engineer — React, TypeScript & AI',
-  description: 'Portfolio of Tiago Schmidt, a frontend engineer specialising in React, TypeScript, Next.js, and AI integration. Available for freelance and full-time opportunities.',
+  title: 'Tiago Schmidt | Senior Frontend Engineer — React, TypeScript & AI',
+  description: 'Portfolio of Tiago Schmidt, a senior frontend engineer specialising in React, TypeScript, Next.js, and AI integration. Available for freelance and full-time opportunities.',
   metadataBase: new URL(siteUrl),
   alternates: {
     canonical: siteUrl,
@@ -43,22 +43,22 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: siteUrl,
-    title: 'Tiago Schmidt | Frontend Engineer — React, TypeScript & AI',
-    description: 'Portfolio of Tiago Schmidt, a frontend engineer specialising in React, TypeScript, Next.js, and AI integration. Available for freelance and full-time opportunities.',
+    title: 'Tiago Schmidt | Senior Frontend Engineer — React, TypeScript & AI',
+    description: 'Portfolio of Tiago Schmidt, a senior frontend engineer specialising in React, TypeScript, Next.js, and AI integration. Available for freelance and full-time opportunities.',
     images: [
       {
         url: ogImage,
         width: 800,
         height: 800,
-        alt: 'Tiago Schmidt — Frontend Engineer',
+        alt: 'Tiago Schmidt — Senior Frontend Engineer',
       },
     ],
     siteName: 'Tiago Schmidt',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Tiago Schmidt | Frontend Engineer — React, TypeScript & AI',
-    description: 'Portfolio of Tiago Schmidt, a frontend engineer specialising in React, TypeScript, Next.js, and AI integration.',
+    title: 'Tiago Schmidt | Senior Frontend Engineer — React, TypeScript & AI',
+    description: 'Portfolio of Tiago Schmidt, a senior frontend engineer specialising in React, TypeScript, Next.js, and AI integration.',
     images: [ogImage],
   },
 }

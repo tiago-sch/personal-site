@@ -8,6 +8,7 @@ const navLinks = [
   { label: 'Skills', href: '#skills' },
   { label: 'Work', href: '#projects' },
   { label: 'Contact', href: '#contact' },
+  { label: 'CV', href: '/cv' },
 ]
 
 export default function Header() {

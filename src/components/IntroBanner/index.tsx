@@ -9,14 +9,14 @@ const IntroBanner: React.FC = () => {
         <div className={styles.banner__content}>
           <p className={styles.banner__pretitle}>Hello, I&apos;m</p>
           <h1 className={styles.banner__title}>Tiago Schmidt</h1>
-          <p className={styles.banner__role}>Frontend Engineer</p>
+          <p className={styles.banner__role}>Senior Frontend Engineer</p>
           <p className={styles.banner__tagline}>
             I build fast, accessible web products with React, TypeScript, and AI.
           </p>
           <p className={styles.banner__description}>
-            With 9+ years of experience across enterprise clients and startups, I specialize in
-            scalable component architecture, mobile-first interfaces, and AI-powered features.
-            I care deeply about performance, accessibility, and the details that make products feel polished.
+            With 10+ years building React and TypeScript products for global brands like Deel, Indeed,
+            Petco, and Alamo, I specialize in accessible interfaces, web performance, design systems,
+            and AI-powered features. I care deeply about the details that make products feel polished.
           </p>
           <div className={styles.banner__ctas}>
             <a href="#projects" className="btn btn--primary">View My Work</a>
@@ -27,7 +27,7 @@ const IntroBanner: React.FC = () => {
         <div className={styles['banner__image-holder']}>
           <Image
             src="/images/profile-photo.png"
-            alt="Tiago Schmidt — Frontend Engineer"
+            alt="Tiago Schmidt — Senior Frontend Engineer"
             fill
             priority
             sizes="(max-width: 768px) 100vw, 50vw"
