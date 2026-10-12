@@ -170,6 +170,7 @@ export const cvProjects: CvProject[] = [
     description:
       'Digital library of professionally modeled 3D Archicad objects based on real Brazilian furniture brands, with free registration and per-object downloads. Built in Django with a focus on SEO, usability and subscription integrations.',
     techStack: ['Django', 'Python'],
+    url: 'https://orabim.com.br/',
   },
   {
     name: 'RPG Session Teller',
@@ -184,6 +185,7 @@ export const cvProjects: CvProject[] = [
     role: 'Personal',
     description: 'Music player for tabletop RPG tables to play ambient music and soundscapes during sessions.',
     techStack: ['React'],
+    url: 'https://dmbard.com/',
   },
 ]
 

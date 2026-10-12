@@ -95,6 +95,8 @@ const projects: Project[] = [
       "Built the Django platform end to end, with free registration, per-object downloads, SEO, and subscription integrations.",
     techStack: ["Django", "Python"],
     aiPowered: false,
+    thumbnail: "/images/portfolio/ora.jpg",
+    liveUrl: "https://orabim.com.br/",
   },
   {
     title: "DM Bard",
@@ -105,6 +107,8 @@ const projects: Project[] = [
       "A music player for ambient tracks and soundscapes, built for Dungeon Masters to use mid-session.",
     techStack: ["React"],
     aiPowered: false,
+    thumbnail: "/images/portfolio/dmbard.jpg",
+    liveUrl: "https://dmbard.com/",
   },
 ];
 
