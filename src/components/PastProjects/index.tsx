@@ -40,16 +40,16 @@ const projects: Project[] = [
     thumbnail: "/images/portfolio/lupah.jpg",
   },
   {
-    title: "Movie Matcher",
+    title: "FeelPick",
     role: "Solo Developer",
     problem:
-      "Help friends agree on what to watch by matching movie preferences across multiple people.",
+      "Help people find the right film for how they feel right now, not just by genre or ratings.",
     outcome:
-      "Shipped a fun, real-time movie recommendation app powered by the Gemini API.",
-    techStack: ["React", "TypeScript", "Vite", "Tailwind", "Gemini"],
+      "A mood-based movie picker: describe your feelings, tune energy, tone, and pace, and get tailored recommendations powered by OpenAI GPT.",
+    techStack: ["React", "TypeScript", "Vite", "Tailwind", "OpenAI GPT"],
     aiPowered: true,
-    thumbnail: "/images/portfolio/movie-matcher.jpg",
-    liveUrl: "https://movie-matcher.tiagoschmidt.com/",
+    thumbnail: "/images/portfolio/feelpick.jpg",
+    liveUrl: "https://feelpick.com/",
     githubUrl: "https://github.com/tiago-sch/movie-matcher",
   },
   {
